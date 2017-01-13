@@ -1,0 +1,150 @@
+
+<div class="container">
+
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li ng-show="!tiresCtrl.make">Cauchos</li>
+            <li ng-show="tiresCtrl.make">
+                <a href="/cauchos">Cauchos</a>
+            </li>
+            <li ng-show="tiresCtrl.make">{{tiresCtrl.make | capitalize}}</li>
+        </ul>
+    </div>
+
+
+
+    <div class="col-md-3">
+        <!-- *** MENUS AND FILTERS ***
+_________________________________________________________ -->
+        <div class="panel panel-default sidebar-menu">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Filtros <a ng-show="tiresCtrl.filtered" ng-click="tiresCtrl.clearFilters()" class="btn btn-xs btn-danger pull-right" href><i class="fa fa-times-circle"></i> Limpiar</a></h3>
+            </div>
+
+            <div class="panel-body">
+
+	           	<!-- Makes -->
+				<div>
+					<label for="makes">Selecciona un fabricante:</label>
+					<select title="Fabricante" ng-change="tiresCtrl.changeMakes()" class="form-control" id="makes" ng-model="tiresCtrl.make" ng-options="make for make in tiresCtrl.makes">
+						<option value="" selected>todas</option> 
+					</select>
+				</div>
+
+                <!-- Rim -->
+                <div>
+                    <label for="diameters">Diametro de rin (R):</label>
+                    <select title="Diametros" ng-change="tiresCtrl.changeDiameter()" class="form-control" id="diameters" ng-model="tiresCtrl.dia" ng-options="diameter for diameter in tiresCtrl.diameters">
+                        <option value="" selected>todos</option> 
+                    </select>
+                </div>
+
+                <!-- Width -->
+                <div>
+                    <label class="widths" for="category">Ancho:</label>
+                    <select title="Anchos" ng-change="tiresCtrl.changeWidth()" class="form-control" id="widths" ng-model="tiresCtrl.width" ng-options="width for width in tiresCtrl.widths">
+                        <option value="" selected>todos</option> 
+                    </select>
+                </div>
+
+                <!-- Height -->
+                <div>
+                    <label class="heights" for="category">Perfil:</label>
+                    <select title="Alturas" ng-change="tiresCtrl.changeHeight()" class="form-control" id="heights" ng-model="tiresCtrl.height" ng-options="height for height in tiresCtrl.heights">
+                        <option value="" selected>todos</option> 
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <!-- *** MENUS AND FILTERS END *** -->
+
+        <div class="banner">
+            <a href="#">
+                <!-- <img src="img/banner.jpg" alt="sales 2014" class="img-responsive"> -->
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+ 	<div class="col-md-9"> 
+	    <div class="row tires">
+
+	    	<div ng-repeat="tire in tiresCtrl.tires">
+		        <div class="col-md-4 col-sm-6">
+		            <div class="product">
+		                <div class="flip-container">
+		                    <div class="flipper">
+		                        <div class="front">
+		                            <a ng-href="/#!/caucho/{{tire.objectId}}/{{tire.make}}-{{tire.model}}-{{tire.width}}-{{tire.height}}-R{{tire.diameter}}">
+		                                <img ng-src="{{tire.mainImage.url}}" alt="" class="img-responsive">
+		                            </a>
+		                        </div>
+		                        <div class="back">
+		                            <a ng-href="/#!/caucho/{{tire.objectId}}/{{tire.make}}-{{tire.model}}-{{tire.width}}-{{tire.height}}-R{{tire.diameter}}">
+		                                <img ng-src="{{tire.images[0].image.url}}" alt="" class="img-responsive">
+		                            </a>
+		                        </div>
+		                    </div>
+		                </div>
+		                <a ng-href="/#!/caucho/{{tire.objectId}}/{{tire.make}}-{{tire.model}}-{{tire.width}}-{{tire.height}}-R{{tire.diameter}}" class="invisible">
+		                    <img ng-src="{{tire.mainImage.url}}" alt="" class="img-responsive">
+		                </a>
+		                <div class="text">
+		                    <h3><a href="/#!/caucho/{{tire.objectId}}/{{tire.make}}-{{tire.model}}-{{tire.dimensions}}">{{tire.make | capitalize}} {{tire.model | uppercase}} {{tire.dimensions | uppercase}}</a></h3>
+		                    
+                            <p class="price">${{tire.price | number}}</p>
+		                    <p class="buttons">
+		                        <a href="/#!/caucho/{{tire.objectId}}/{{tire.make}}-{{tire.model}}-{{tire.width}}-{{tire.height}}-R{{tire.diameter}}" class="btn btn-primary">Ver detalles</a>
+		                    </p>
+
+		                </div>
+		                <!-- /.text -->
+
+	                    <div class="ribbon sale">
+	                        <div class="theribbon">R{{tire.diameter}}</div>
+	                        <div class="ribbon-background"></div>
+	                    </div>
+		                <!-- /.ribbon -->
+
+	                    <div ng-show="tire.condition == 'used'" class="ribbon gift">
+	                        <div class="theribbon">USADO</div>
+	                        <div class="ribbon-background"></div>
+	                    </div>
+	                    <!-- /.ribbon -->
+
+		            </div>
+		            <!-- /.product -->
+		        </div>
+		        <!-- /.col-md-4 -->
+	        </div>
+
+	        <!-- *** No results message *** -->
+            <div class="text-center" ng-show="tiresCtrl.noTires">
+
+                <div class="no-results">
+                    <h3>No hay resultados.</h3>
+                </div>
+
+            </div>
+            <!-- /.No results -->
+
+
+	    </div>
+	    <!-- /.products -->
+    </div>
+
+
+</div>
+

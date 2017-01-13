@@ -1,0 +1,464 @@
+    <div class="container">
+
+        <div class="col-md-12">
+
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a>
+                </li>
+                <li>Perfil</li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-3">
+            <!-- *** USER MENU ***
+_________________________________________________________ -->
+            <div class="panel panel-default sidebar-menu">
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">Secciones</h3>
+                </div>
+
+                <div class="panel-body">
+
+                    <ul class="nav nav-pills nav-stacked">
+<!--                     	<li ng-class="{'active': profileCtrl.cart}">
+                            <a href="/#!/perfil/carrito" ><i class="fa fa-shopping-cart"></i> Mi carrito</a>
+                        </li> -->
+                        <li ng-class="{'active': profileCtrl.account}">
+                            <a href="/#!/perfil"><i class="fa fa-user"></i> Mis datos</a>
+                        </li>
+                        <li ng-class="{'active': profileCtrl.orders}">
+                            <a href="/#!/perfil/ordenes" ><i class="fa fa-list"></i> Mis ordenes</a>
+                        </li>
+                        <li ng-class="{'active': profileCtrl.wish}">
+                            <a href="/#!/perfil/deseos"><i class="fa fa-heart"></i> Mis deseos</a>
+                        </li>
+                        <li>
+                            <a href ng-click="mainCtrl.logOut()"><i class="fa fa-sign-out"></i> Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /.col-md-3 -->
+
+            <!-- *** CUSTOMER MENU END *** -->
+        </div>
+
+        <div class="col-md-9">
+
+        	<!-- *** Personal info *** -->
+        	<div ng-show="profileCtrl.account" >
+	            <div class="box animated bounceInLeft">
+	                <h1>Mis datos</h1>
+	                <p class="lead">Cambia todos tus datos aquí.</p>
+	                <hr>
+	                <h3>Datos personales</h3>
+	                <form name="updateUserInfo" ng-submit="profileCtrl.updateUserInfo()" action="javascript:void(0);">
+	                    <div class="row">
+	                        <div class="col-sm-6">
+	                            <div class="form-group">
+	                                <label for="firstname">Nombre</label>
+	                                <input ng-model="profileCtrl.editUser.firstName" type="text" class="form-control" id="name" required>
+	                            </div>
+	                        </div>
+	                        <div class="col-sm-6">
+	                            <div class="form-group">
+	                                <label for="lastname">Apellido</label>
+	                                <input ng-model="profileCtrl.editUser.lastName" type="text" class="form-control" id="lastName" required>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- /.row -->
+
+
+	                    <div class="row">
+
+	                        <div class="col-sm-6">
+	                            <div class="form-group">
+	                                <label for="country">País</label>
+	                                <select ng-model="profileCtrl.editUser.country" class="form-control" id="country" ng-options="country for country in profileCtrl.countries">
+	                                	<option value="" disabled selected>{{profileCtrl.user.country}}</option>
+	                                </select>
+	                            </div>
+	                        </div>
+
+	                        <div class="col-sm-6">
+	                            <div class="form-group">
+	                                <label for="phone">Teléfono</label>
+	                                <input ng-model="profileCtrl.editUser.phone" type="text" class="form-control" id="phone" required>
+	                            </div>
+	                        </div>
+	                        <div class="col-sm-12">
+	                            <div class="form-group">
+	                                <label for="email">Email</label>
+	                                <input ng-model="profileCtrl.editUser.email" type="email" class="form-control" id="email" required>
+	                            </div>
+	                        </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="address">Dirección (Para el delivery)<span class="colorRed">*</span></label>
+                                     <textarea class="form-control" ng-model="profileCtrl.editUser.address" placeholder="Calle 5 con calle 6, Ciudad....."></textarea>
+                                </div>
+                            </div>
+	                        <div class="col-sm-12 text-center">
+	                            <button ng-show="!profileCtrl.updatinInfo" type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar cambios</button>
+
+	                        </div>
+	                    </div>
+	                </form>
+
+<!-- 	                <hr>
+
+	                <h3>Cambio de contraseña</h3>
+
+	                <form>
+	                    <div class="row">
+	                        <div class="col-sm-6">
+	                            <div class="form-group">
+	                                <label for="password_old">Contraseña vieja</label>
+	                                <input type="password" class="form-control" id="password_old">
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-sm-6">
+	                            <div class="form-group">
+	                                <label for="password_1">Contraseña nueva</label>
+	                                <input type="password" class="form-control" id="password_1">
+	                            </div>
+	                        </div>
+	                        <div class="col-sm-6">
+	                            <div class="form-group">
+	                                <label for="password_2">Repite la nueva contraseña</label>
+	                                <input type="password" class="form-control" id="password_2">
+	                            </div>
+	                        </div>
+	                    </div>
+
+	                    <div class="row">
+		                    <div class="col-sm-12 text-center">
+		                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar contraseña</button>
+		                    </div>
+	                    </div>
+	                </form> -->
+
+	            </div>
+            </div>
+            <!-- *** End of Personal info *** -->
+
+
+            <!-- *** Orders *** -->
+            <div ng-show="profileCtrl.orders">
+
+            	<div class="box animated bounceInLeft">
+
+            		<!-- *** Orders List *** -->
+            		<div ng-show="!profileCtrl.orderDetail">
+	                    <h1>Mis Ordenes</h1>
+
+	                    <p class="lead">Todas tus ordenes aquí.</p>
+	<!--                         <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p> -->
+
+	                    <hr>
+
+	                    <div class="table-responsive">
+	                        <table class="table table-hover">
+	                            <thead>
+	                                <tr>
+	                                    <th>Referencia</th>
+	                                    <th>Fecha</th>
+                                        <th>Tipo</th>
+                                        <th>Total Orden</th>
+	                                    <th>Total Pagado</th>
+                                        <th>Restante por pagar</th>
+	                                    <th>Estatus</th>
+                                        <th></th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr ng-repeat="order in profileCtrl.user.orders">
+	                                    <th>{{order.objectId}}</th>
+	                                    <td>{{order.createdAt | date : "dd/MM/yyyy"}}</td>
+                                        <td><span ng-show="order.category == 'vehicle'">Vehículo</span><span ng-show="order.category == 'tires'">Cauchos</span></td>
+                                        <td>${{order.totalOrder | number}}</td>
+	                                    <td>${{order.totalPaid | number}}</td>
+                                        <td>${{order.remainingToPay | number}}</td>
+	                                    <td><span class="label" ng-class="profileCtrl.orderStatus(order.status)">{{order.status | capitalize}}</span>
+	                                    </td>
+                                        <td>
+                                            <a href class="btn btn-primary btn-sm" ng-click="profileCtrl.viewOrderDetail($index)">Detalles</a>
+                                        </td>
+	                                </tr>
+	                            </tbody>
+	                        </table>
+	                    </div>
+                    </div>
+                    <!-- *** End of orders List *** -->
+
+                    <!-- *** Order Detail *** -->
+                    <div ng-show="profileCtrl.orderDetail" id="customer-order">
+
+                    	<h3>Orden {{profileCtrl.user.orders[profileCtrl.orderIndex].objectId}}</h3>
+
+                        <p class="lead">Esta orden fue creada {{profileCtrl.user.orders[profileCtrl.orderIndex].createdAt | date : "dd/MM/yyyy"}} y su estatus es: <span class="label" ng-class="profileCtrl.orderStatus(profileCtrl.user.orders[profileCtrl.orderIndex].status)">{{profileCtrl.user.orders[profileCtrl.orderIndex].status | capitalize}}</span></p>
+
+                        <hr>
+
+                        <div class="table-responsive">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Producto</th>
+                                        <th ng-show="profileCtrl.vehicleItem">Color</th>
+                                        <th ng-show="profileCtrl.tireItem">Cantidad</th>
+                                        <th>País de destino</th>
+                                        <th>Precio de reserva</th>
+                                        <th>Precio total unitario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in profileCtrl.user.orders[profileCtrl.orderIndex].items">
+
+                                    	<!-- .auto product -->
+                                        <td ng-show="item.category == 'autos'">
+                                            <a href="/#!/automovil/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+                                            </a>
+                                        </td>
+                                        <td ng-show="item.category == 'autos'">
+                                        	<a href="/#!/automovil/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+                                        		<div>
+                                                    <span>{{item.make | capitalize}}</span>
+                                                </div>
+                                                <div>
+                                                    <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+                                                </div>
+                                                <div>
+                                                    <span>{{item.year}}</span>
+                                                </div>
+                                        	</a>
+                                        </td>
+
+                                        <!-- .bike product -->
+                                        <td ng-show="item.category == 'bikes'">
+                                            <a ng-href="/#!/moto/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+                                            </a>
+                                        </td>
+                                        <td ng-show="item.category == 'bikes'">
+                                        	<a ng-href="/#!/moto/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+                                        		<div>
+                                                    <span>{{item.make | capitalize}}</span>
+                                                </div>
+                                                <div>
+                                                    <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+                                                </div>
+                                                <div>
+                                                    <span>{{item.year}}</span>
+                                                </div>
+                                        	</a>
+                                        </td>
+
+                                        <!-- .tire product -->
+                                        <td ng-show="item.category == 'tires'">
+                                            <a ng-href="/#!/caucho/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.width}}-{{item.height}}-R{{item.diameter}}">
+                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+                                            </a>
+                                        </td>
+                                        <td ng-show="item.category == 'tires'">
+                                        	<a ng-href="/#!/caucho/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.width}}-{{item.height}}-R{{item.diameter}}" >
+                                        		<div>
+                                                    <span>{{item.make | capitalize}}</span>
+                                                </div>
+                                                <div>
+                                                    <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+                                                </div>
+                                                <div>
+                                                    <span>{{item.dimensions}}</span>
+                                                </div>
+                                        	</a>
+                                        </td>
+
+                                        <td ng-show="item.category == 'tires'">{{item.quantity}}</td>
+                                        <td ng-show="item.category != 'tires'">{{item.wishColor}}</td>
+                                        <td>{{profileCtrl.user.orders[profileCtrl.orderIndex].destCountry}}</td>
+                                        <td>${{item.reservationPrice | number}}</td>
+                                        <td>${{item.price + item.destFee | number}}</td>
+                                    </tr>
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="5" class="text-right">Total por pagar</th>
+                                        <th class="colorExporta">${{profileCtrl.user.orders[profileCtrl.orderIndex].remainingToPay | number}}</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="5" class="text-right">Total pagado</th>
+                                        <th class="colorGreen">${{profileCtrl.user.orders[profileCtrl.orderIndex].totalPaid | number}}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                        <!-- /.table-responsive -->
+
+                        <div class="box-footer">
+
+                        	<div>
+	                            <div class="pull-left">
+	                                <a href class="btn btn-default" ng-click="profileCtrl.orderDetail = false"><i class="fa fa-chevron-left"></i>Regresar a las ordenes</a>
+	                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- *** End of order Detail *** -->
+
+                    <!-- *** No orders message *** -->
+                    <div ng-show="profileCtrl.user.orders.length == 0">
+
+                    	<h3>No tienes ordenes de compra.</h3>
+
+                    </div>
+                    <!-- *** End of no orders message *** -->
+
+                </div>
+            </div>
+            <!-- *** End of Orders *** -->
+
+            <!-- *** Wishes *** -->
+            <div ng-show="profileCtrl.wish">
+
+            	<div class="box animated bounceInLeft">
+                    <h1>Mis Deseos</h1>
+
+                    <p class="lead">Tus deseos en Mokars estana aquí.</p>
+                    <hr>
+                    <div class="row wishes">
+
+                    	<div ng-repeat="wish in profileCtrl.user.wishes">
+	                        
+                            <div class="col-md-3">
+	                        	<!-- .auto product -->
+	                            <div class="product" ng-show="wish.category == 'autos'">
+	                                <div class="flip-container">
+	                                    <div class="flipper">
+	                                        <div class="front">
+	                                            <a href="/#!/automovil/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}">
+	                                                <img ng-src="{{wish.mainImage.url}}" alt="" class="img-responsive">
+	                                            </a>
+	                                        </div>
+	                                        <div class="back">
+	                                            <a href="/#!/automovil/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}">
+	                                                <img ng-src="{{wish.images[0].image.url}}" alt="" class="img-responsive">
+	                                            </a>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <a href="/#!/automovil/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}" class="invisible">
+	                                    <img ng-src="{{wish.mainImage.url}}" alt="" class="img-responsive">
+	                                </a>
+	                                <div class="text">
+	                                    <h3><a href="/#!/automovil/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}" >{{wish.make | capitalize}} {{wish.model | capitalize}}</a></h3>
+	                                    <p class="price">${{wish.price | number}}</p>
+	                                    <p class="buttons">
+	                                        <a href="/#!/automovil/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}" class="btn btn-default">Ver detalles</a>
+	                                        <a href ng-click="profileCtrl.addingToCart || profileCtrl.addToCart(wish)" ng-disabled="profileCtrl.addingToCart" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Al carrito</a>
+	                                    </p>
+	                                </div>
+	                                <!-- /.text -->
+	                            </div>
+	                            <!-- /.auto product -->
+
+	                            <!-- .bike product -->
+	                            <div class="product" ng-show="wish.category == 'bikes'">
+	                                <div class="flip-container">
+	                                    <div class="flipper">
+	                                        <div class="front">
+	                                            <a ng-href="/#!/moto/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}">
+	                                                <img ng-src="{{wish.mainImage.url}}" alt="" class="img-responsive">
+	                                            </a>
+	                                        </div>
+	                                        <div class="back">
+	                                            <a ng-href="/#!/moto/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}">
+	                                                <img ng-src="{{wish.images[0].image.url}}" alt="" class="img-responsive">
+	                                            </a>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <a ng-href="/#!/moto/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}" class="invisible">
+	                                    <img ng-src="{{wish.mainImage.url}}" alt="" class="img-responsive">
+	                                </a>
+	                                <div class="text">
+	                                    <h3><a ng-href="/#!/moto/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}" >{{wish.make | capitalize}} {{wish.model | capitalize}}</a></h3>
+	                                    <p class="price">${{wish.price | number}}</p>
+	                                    <p class="buttons">
+	                                        <a ng-href="/#!/moto/{{wish.objectId}}/{{wish.make}}-{{wish.model}}-{{wish.year}}" class="btn btn-default">Ver detalles</a>
+	                                        <a href ng-click="profileCtrl.addingToCart || profileCtrl.addToCart(wish)" ng-disabled="profileCtrl.addingToCart" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Al carrito</a>
+	                                    </p>
+	                                </div>
+	                                <!-- /.text -->
+	                            </div>
+	                            <!-- /.bike product -->
+
+
+	                          	<!-- .tire product -->
+	                            <div class="product" ng-show="wish.category == 'tires'">
+	                                <div class="flip-container">
+	                                    <div class="flipper">
+	                                        <div class="front">
+	                                            <a ng-href="/#!/caucho/{{wish.objectId}}/{{tire.make}}-{{wish.model}}-{{wish.width}}-{{wish.height}}-R{{wish.diameter}}">
+	                                                <img ng-src="{{wish.mainImage.url}}" alt="" class="img-responsive">
+	                                            </a>
+	                                        </div>
+	                                        <div class="back">
+	                                            <a ng-href="/#!/caucho/{{wish.objectId}}/{{tire.make}}-{{wish.model}}-{{wish.width}}-{{wish.height}}-R{{wish.diameter}}">
+	                                                <img ng-src="{{wish.images[0].image.url}}" alt="" class="img-responsive">
+	                                            </a>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <a ng-href="/#!/caucho/{{wish.objectId}}/{{tire.make}}-{{wish.model}}-{{wish.width}}-{{wish.height}}-R{{wish.diameter}}" class="invisible">
+	                                    <img ng-src="{{wish.mainImage.url}}" alt="" class="img-responsive">
+	                                </a>
+	                                <div class="text">
+	                                    <h3><a ng-href="/#!/caucho/{{wish.objectId}}/{{tire.make}}-{{wish.model}}-{{wish.width}}-{{wish.height}}-R{{wish.diameter}}" >{{wish.make | capitalize}} {{wish.model | uppercase}} {{wish.dimensions | uppercase}}</a></h3>
+	                                    <p class="price">${{wish.price | number}}</p>
+	                                    <p class="buttons">
+	                                        <a ng-href="/#!/caucho/{{wish.objectId}}/{{tire.make}}-{{wish.model}}-{{wish.width}}-{{wish.height}}-R{{wish.diameter}}" class="btn btn-default">Ver detalles</a>
+	                                        <a href ng-click="profileCtrl.addingToCart || profileCtrl.addToCart(wish)" ng-disabled="profileCtrl.addingToCart" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Al carrito</a>
+	                                    </p>
+	                                </div>
+	                                <!-- /.text -->
+	                            </div>
+	                            <!-- /.tire product -->
+
+	                        </div>
+                        </div>
+                    </div>
+                    <!-- /.products -->
+
+
+                    <!-- *** No wishes message *** -->
+                    <div ng-show="profileCtrl.user.wishes.length == 0">
+
+                    	<h3>No tienes deseos.</h3>
+
+                    </div>
+                    <!-- *** End of no wishes message *** -->
+
+
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- *** End of Wishes *** -->
+
+        </div>
+        <!-- /.col-md-9 -->
+
+    </div>
+    <!-- /.container -->

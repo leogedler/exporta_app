@@ -1,0 +1,208 @@
+
+<div class="container-fluid">
+
+    <div class="col-md-12 hidden-xs hidden-lg">
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a>
+            </li>
+            <li><a href="/motos">Motos</a>
+            </li>
+            <li><a ng-href="/motos/{{bikeDetailCtrl.bike.make}}">{{bikeDetailCtrl.bike.make | capitalize}}</a>
+            </li>
+            <li>{{bikeDetailCtrl.bike.model | capitalize}}</li>
+        </ul>
+
+    </div>
+
+    <div class="col-md-12 nopadding">
+
+	    <div class="row productMain">
+	        <div class="col-sm-12 nopadding">
+	        	
+	            <div class="mainImage">
+	            	<div id="carousel-custom" ng-show="bikeDetailCtrl.bike.images" >
+					    <div uib-carousel active="bikeDetailCtrl.imageActive" interval="bikeDetailCtrl.carouselInterval" no-wrap="false" no-transition="true">
+					    	<div uib-slide ng-repeat="slide in bikeDetailCtrl.bike.images track by $index" index="$index">
+					        	<img ng-src="{{slide.image.url}}" class="img-responsive">
+					      	</div>
+
+					    </div>
+
+
+					    <!-- Indicators -->
+					    <ol class='carousel-indicators'>
+					        <li ng-repeat="slide in bikeDetailCtrl.bike.images" ng-click="bikeDetailCtrl.imageActive = $index" ng-class="{'active': bikeDetailCtrl.imageActive == $index}">
+
+					        	<div>
+					        		<img ng-src='{{slide.image.url}}' alt='' class="img-responsive" />
+					        	</div>
+					        </li>
+					    </ol>
+
+				    </div>
+
+				</div>
+
+	        </div>
+
+	        <div class="boxDraggable hidden-sm hidden-xs" id="draggable">
+
+	        	<div style="padding-top:20px; padding-left:20px;">
+	        		<i class="fa fa-arrows colorExporta" aria-hidden="true"></i>
+	        	</div>
+
+	            <div class="data">
+	                <h3 class="text-center">{{bikeDetailCtrl.bike.make | capitalize}} {{bikeDetailCtrl.bike.model | capitalize}} {{bikeDetailCtrl.bike.modelDetail | capitalize}} <span class="year">{{bikeDetailCtrl.bike.year}}</span></h3>
+	                <p class="goToDescription"><a href="#details" class="scroll-to">Ver detalles</a>
+	                </p>
+
+
+	               	<div class="text-center">
+	                	<p>Precio Base <span class="countryPrice">${{bikeDetailCtrl.bike.price | number}}</span></p>
+	                </div>
+
+
+	                <div class="col-md-12">
+                        <div class="form-group text-center">
+                            <label for="new-auto-countries">Países disponibles</label>
+                            <select id="new-auto-countries" title="Tipo" class="form-control" id="type" ng-model="bikeDetailCtrl.country" ng-options="country.country for country in bikeDetailCtrl.bike.countries" ng-change="bikeDetailCtrl.onCountrySelected()" required>
+                                <option value="" disabled selected>Selecciona</option> 
+                            </select>
+                        </div>
+                    </div>
+
+
+                   	<div class="text-center" ng-show="bikeDetailCtrl.countrySelected">
+	                	<h4>Precio para {{bikeDetailCtrl.country.country | capitalize}}</h4>
+	                	<p class="price">${{bikeDetailCtrl.totalPrice | number}}</p>
+	                </div>
+
+	                <p class="text-center buttons">
+	                   	<a href ng-click="bikeDetailCtrl.addingToCart || bikeDetailCtrl.addToCart()" class="btn btn-primary" ng-disabled="bikeDetailCtrl.addingToCart"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a> 
+	                   	<a href ng-click="bikeDetailCtrl.uptadingWish || bikeDetailCtrl.addOrRemodeToWishes()" class="btn btn-default" ng-disabled="bikeDetailCtrl.uptadingWish"><i class="fa fa-heart" ng-class="{'colorRed': bikeDetailCtrl.isWished}"></i> Me gusta</a>
+	                </p>
+
+
+	            </div>
+
+	        </div>
+
+
+	        <div class="col-sm-12 hidden-lg hidden-md nopadding">
+	            <div class="data">
+	                <h3 class="text-center">{{bikeDetailCtrl.bike.make | capitalize}} {{bikeDetailCtrl.bike.model | capitalize}} {{bikeDetailCtrl.bike.modelDetail | capitalize}} <span class="year">{{bikeDetailCtrl.bike.year}}</span></h3>
+	                <p class="goToDescription"><a href="#details" class="scroll-to">Ver detalles</a>
+	                </p>
+
+
+	               	<div class="text-center">
+	                	<p>Precio Base <span class="countryPrice">${{bikeDetailCtrl.bike.price | number}}</span></p>
+	                </div>
+
+
+	                <div class="col-md-12">
+                        <div class="form-group text-center">
+                            <label for="new-auto-countries">Países disponibles</label>
+                            <select id="new-auto-countries" title="Tipo" class="form-control" id="type" ng-model="bikeDetailCtrl.country" ng-options="country.country for country in bikeDetailCtrl.bike.countries" ng-change="bikeDetailCtrl.onCountrySelected()" required>
+                                <option value="" disabled selected>Selecciona</option> 
+                            </select>
+                        </div>
+                    </div>
+
+
+                   	<div class="text-center" ng-show="bikeDetailCtrl.countrySelected">
+	                	<h4>Precio para {{bikeDetailCtrl.country.country | capitalize}}</h4>
+	                	<p class="price">${{bikeDetailCtrl.totalPrice | number}}</p>
+	                </div>
+
+	                <p class="text-center buttons">
+	                   	<a href ng-click="bikeDetailCtrl.addingToCart || bikeDetailCtrl.addToCart()" class="btn btn-primary" ng-disabled="bikeDetailCtrl.addingToCart"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a> 
+	                   	<a href ng-click="bikeDetailCtrl.uptadingWish || bikeDetailCtrl.addOrRemodeToWishes()" class="btn btn-default" ng-disabled="bikeDetailCtrl.uptadingWish"><i class="fa fa-heart" ng-class="{'colorRed': bikeDetailCtrl.isWished}"></i> Me gusta</a>
+	                </p>
+
+
+	            </div>
+	        </div>
+
+	    </div>
+
+    </div>
+
+    <div class="col-md-12 nopadding">
+
+    	<div class="row detailBox" id="details">
+	    	<div class="container">
+	    		<div>
+		            <h4>Características</h4>
+	            	<table class="table" style="max-width: 400px;">
+					    <tbody>
+					    	<thead>
+
+						    </thead>
+						    <tr>
+						        <td>Año</td>
+						        <td><strong>{{bikeDetailCtrl.bike.year}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Millage</td>
+						        <td><strong>{{bikeDetailCtrl.bike.mileage}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Transmisión</td>
+						        <td><strong>{{bikeDetailCtrl.bike.transmission | capitalize}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Motor</td>
+						        <td><strong>{{bikeDetailCtrl.bike.engine | capitalize}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Tipo</td>
+						        <td><strong>{{bikeDetailCtrl.bike.type | capitalize}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Color</td>
+						        <td><strong>{{bikeDetailCtrl.bike.color | capitalize}}</strong></td>
+						    </tr>
+
+					    </tbody>
+					</table>
+		        </div>
+
+		        <div>
+	            	<h4>Extras</h4>
+	            	<blockquote>
+	            		<p>{{bikeDetailCtrl.bike.features}}</p>
+	            	</blockquote>
+	            </div>
+
+	           	<hr>
+	            <div class="social">
+	                <h4>Comparte con tus amigos</h4>
+	                <p>
+	                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+	                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+	                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+	                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+	                </p>
+	            </div>
+
+	        </div>
+
+
+	    </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+  $( function() {
+    $( "#draggable" ).draggable();
+  });
+
+</script>
+
+
+
+

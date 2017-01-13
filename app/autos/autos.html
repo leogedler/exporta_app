@@ -1,0 +1,206 @@
+
+<div class="container">
+
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li ng-show="!autosCtrl.make">Automóviles</li>
+            <li ng-show="autosCtrl.make">
+                <a href="/automoviles">Automóviles</a>
+            </li>
+            <li ng-show="autosCtrl.make">{{autosCtrl.make | capitalize}}</li>
+        </ul>
+    </div>
+
+
+
+    <div class="col-md-3">
+        <!-- *** MENUS AND FILTERS ***
+_________________________________________________________ -->
+        <div class="panel panel-default sidebar-menu">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Filtros <a ng-show="autosCtrl.filtered" ng-click="autosCtrl.clearFilters()" class="btn btn-xs btn-danger pull-right" href><i class="fa fa-times-circle"></i> Limpiar</a></h3>
+            </div>
+
+            <div class="panel-body">
+
+	           	<!-- Makes -->
+				<div>
+					<label for="makes">Selecciona un fabricante:</label>
+					<select title="Fabricante" ng-change="autosCtrl.changeMakes()" class="form-control" id="makes" ng-model="autosCtrl.make" ng-options="make for make in autosCtrl.makes">
+						<option value="" selected>todas</option> 
+					</select>
+				</div>
+
+                <!-- Type -->
+                <div>
+                    <label for="types">Selecciona un tipo:</label>
+                    <select title="Tipos" ng-change="autosCtrl.changeTypes()" class="form-control" id="types" ng-model="autosCtrl.ty" ng-options="type for type in autosCtrl.types">
+                        <option value="" selected>todos</option> 
+                    </select>
+                </div>
+
+<!--                 <form>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Armani (10)
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Versace (12)
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Carlo Bruni (15)
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">Jack Honey (14)
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>
+
+                </form> -->
+
+            </div>
+        </div>
+
+<!--         <div class="panel panel-default sidebar-menu">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Colours <a class="btn btn-xs btn-danger pull-right" href="#"><i class="fa fa-times-circle"></i> Clear</a></h3>
+            </div>
+
+            <div class="panel-body">
+
+                <form>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <span class="colour white"></span> White (14)
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <span class="colour blue"></span> Blue (10)
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <span class="colour green"></span> Green (20)
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <span class="colour yellow"></span> Yellow (13)
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <span class="colour red"></span> Red (10)
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button>
+
+                </form>
+
+            </div>
+        </div> -->
+
+        <!-- *** MENUS AND FILTERS END *** -->
+
+        <div class="banner">
+            <a href="#">
+                <!-- <img src="img/banner.jpg" alt="sales 2014" class="img-responsive"> -->
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+ 	<div class="col-md-9"> 
+	    <div class="row vehicles">
+
+	    	<div ng-repeat="auto in autosCtrl.autos">
+		        <div class="col-md-4 col-sm-6">
+		            <div class="product">
+		                <div class="flip-container">
+		                    <div class="flipper">
+		                        <div class="front">
+		                            <a ng-href="/#!/automovil/{{auto.objectId}}/{{auto.make}}-{{auto.model}}-{{auto.year}}">
+		                                <img ng-src="{{auto.mainImage.url}}" alt="" class="img-responsive">
+		                            </a>
+		                        </div>
+		                        <div class="back">
+		                            <a ng-href="/#!/automovil/{{auto.objectId}}/{{auto.make}}-{{auto.model}}-{{auto.year}}">
+		                                <img ng-src="{{auto.images[0].image.url}}" alt="" class="img-responsive" >
+		                            </a>
+		                        </div>
+		                    </div>
+		                </div>
+		                <a ng-href="/#!/automovil/{{auto.objectId}}/{{auto.make}}-{{auto.model}}-{{auto.year}}" class="invisible">
+		                    <img ng-src="{{auto.mainImage.url}}" alt="" class="img-responsive">
+		                </a>
+		                <div class="text">
+		                    <h3><a href="#!/automovil/{{auto.objectId}}/{{auto.make}}-{{auto.model}}-{{auto.year}}">{{auto.make | capitalize}} {{auto.model | capitalize}} <span>{{auto.year}}</span></a></h3>
+                            
+                            <p class="price">${{auto.price | number}}</p>
+
+		                    <p class="buttons">
+		                        <a href="/#!/automovil/{{auto.objectId}}/{{auto.make}}-{{auto.model}}-{{auto.year}}" class="btn btn-primary">Ver detalles</a>
+		                    </p>
+
+		                </div>
+		                <!-- /.text -->
+
+	                    <div ng-show="auto.condition == 'new'" class="ribbon new">
+	                        <div class="theribbon">NUEVO</div>
+	                        <div class="ribbon-background"></div>
+	                    </div>
+		                <!-- /.ribbon -->
+
+	                    <div ng-show="auto.condition == 'used'" class="ribbon gift">
+	                        <div class="theribbon">USADO</div>
+	                        <div class="ribbon-background"></div>
+	                    </div>
+	                    <!-- /.ribbon -->
+
+		            </div>
+		            <!-- /.product -->
+		        </div>
+		        <!-- /.col-md-4 -->
+	        </div>
+
+
+            <!-- *** No results message *** -->
+            <div class="text-center" ng-show="autosCtrl.noAutos">
+
+                <div class="no-results">
+                    <h3>No hay resultados.</h3>
+                </div>
+
+            </div>
+            <!-- /.No results -->
+
+
+
+	    </div>
+	    <!-- /.products -->
+    </div>
+
+
+</div>
+

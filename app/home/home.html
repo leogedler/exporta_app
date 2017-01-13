@@ -1,0 +1,131 @@
+
+	<div id="background-big">
+
+
+<!-- 		<div>
+	        <form name="searchFormMain" ng-submit="mainCtrl.search()" class="navbar-form" role="search" action="javascript:void(0);">
+	            <div class="input-group">
+	                
+	                <input class="form-control" placeholder="Búsqueda" id="searchMain" name="search" type="text" ng-model="mainCtrl.searchWords" autocomplete aa-datasets="mainCtrl.getDatasets()" />
+
+	            </div>
+	        </form>
+		</div> -->
+
+
+
+		<div class="colorWhite">
+
+			<h3>El vehículos que.</h3>
+			<h1>Desees!</h1>
+
+<!-- 			<a href class="video linksWhite" data-video="https://www.youtube.com/embed/6baRhrsiYgc" data-toggle="modal" data-target="#videoModal">
+				<i class="fa fa-play-circle fa-5x" aria-hidden="true"></i>
+			</a> -->
+
+		</div>
+	</div>
+
+
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          	<div class="modal-content">
+            	<div class="modal-body">
+              		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              		<iframe width="100%" height="350" src="" frameborder="0" allowfullscreen></iframe>
+            	</div>
+          	</div>
+        </div>
+    </div>
+
+
+
+
+    <!-- *** GET INSPIRED ***
+_________________________________________________________ -->
+    <div class="container" data-animate="fadeInUpBig">
+        <div class="col-md-12">
+            <div class="box slideshow">
+                <h3>Conoces a Mokars?</h3>
+                <p class="lead">Aquí puedes ver un poco sobre nosotros</p>
+                <div id="get-inspired" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="app/images/fotogrupo.jpg" alt="Get inspired" class="img-responsive">
+                    </div>
+                    <div class="item">
+                        <img src="app/images/FOTOREY.jpg" alt="Get inspired" class="img-responsive">
+                    </div>
+                    <div class="item">
+                        <img src="app/images/IMG_0756ORIGINALFINAL2.jpg" alt="Get inspired" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- *** GET INSPIRED END *** -->
+
+<!-- <script src="js/front.js"></script> -->
+	
+<script type="text/javascript">
+
+	carousels();
+
+	// $("#background-big").bgswitcher({
+
+	//   images: ["app/images/main-background.png", "app/images/IMG_0086.jpg", "app/images/IMG_0119.jpg"], // Background images
+	//   effect: "fade", // fade, blind, clip, slide, drop, hide
+	//   interval: 8000
+	// });
+
+	/* carousels */
+	function carousels() {
+
+	    $("#get-inspired").owlCarousel({
+			navigation: true, // Show next and prev buttons
+			slideSpeed: 300,
+			paginationSpeed: 400,
+			autoPlay: true,
+			stopOnHover: true,
+			singleItem: true,
+			afterInit: ''
+	    });
+
+	    $('.product-slider').owlCarousel({
+			navigation: true, // Show next and prev buttons
+			slideSpeed: 300,
+			paginationSpeed: 400,
+			afterInit: function() {
+			    $('.product-slider .item').css('visibility', 'visible');
+			}
+	    });
+
+	    $('#main-slider').owlCarousel({
+			navigation: true, // Show next and prev buttons
+			slideSpeed: 300,
+			paginationSpeed: 400,
+			autoPlay: true,
+			stopOnHover: true,
+			singleItem: true,
+			afterInit: ''
+	    });
+
+	}
+
+
+	/* Video modal */
+	$(".video").click(function () {
+		var theModal = $(this).data("target"),
+		videoSRC = $(this).attr("data-video"),
+		videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1";
+		$(theModal + ' iframe').attr('src', videoSRCauto);
+		// $(theModal + ' button.close').click(function () {
+		// 	$(theModal + ' iframe').attr('src', videoSRC);
+		//     console.log('close');
+		// });
+		$(theModal).on('hidden.bs.modal', function () {
+		    $(theModal + ' iframe').attr('src', videoSRC);
+		    console.log('hide');
+		});
+	});
+
+</script>

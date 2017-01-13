@@ -1,0 +1,105 @@
+<div class="container">
+
+    <div class="col-md-12">
+
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a>
+            </li>
+            <li>Nueva cuenta / Registro</li>
+        </ul>
+
+    </div>
+
+    <div class="col-md-6">
+        <div class="box">
+            <h1>Regístrate</h1>
+
+            <p class="lead">¿No estás registrado?</p>
+            <p>Registrate en Exporta tu carro para comprar el automóvil de tus sueños o cualquiera de los demás productos que ofrecemos al mejor precio del mercado!</p>
+            <p class="text-muted">Si tienes alguna duda puedes ponerte en contacto con nosotros a través de cualquiera de los medios indicados en <a href="/contact">contactanos</a>.</p>
+
+            <hr>
+
+            <form name="signUpForm" ng-submit="registerCtrl.singUp()" action="javascript:void(0);">
+
+            	<div class="row">
+            		<div class="col-md-6 col-sm-12 col-xm-12">
+		                <div class="form-group">
+		                    <label for="name">Nombre</label>
+		                    <input ng-model="registerCtrl.singUpForm.firstName" type="text" class="form-control" id="name" required>
+		                </div>
+	                </div>
+	                <div class="col-md-6 col-sm-12 col-xm-12">
+		                <div class="form-group">
+		                    <label for="name">Apellido</label>
+		                    <input ng-model="registerCtrl.singUpForm.lastName" type="text" class="form-control" id="lastName" required>
+		                </div>
+	                </div>
+                </div>
+
+                <div class="row">
+                	<div class="col-md-6 col-sm-12 col-xm-12">
+		                <div class="form-group">
+		                    <label for="name">País</label>
+		                    <select ng-model="registerCtrl.singUpForm.country" class="form-control center" ng-options="country for country in registerCtrl.countries" title="country" required>
+		                        <option value="" disabled selected>Selecciona tu país</option>
+		                    </select>
+		                </div>
+	                </div>
+	                <div class="col-md-6 col-sm-12 col-xm-12">
+		                <div class="form-group">
+		                    <label for="name">Teléfono</label>
+		                    <input ng-model="registerCtrl.singUpForm.phone" type="text" class="form-control" id="phone" required>
+		                </div>
+	                </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input ng-model="registerCtrl.singUpForm.email" type="email" class="form-control" id="email" autocapitalize="none" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input ng-model="registerCtrl.singUpForm.password" type="password" class="form-control" autocapitalize="none" id="password" required>
+                </div>
+                <div class="text-center">
+
+                    <button ng-hide="registerCtrl.signingUp" type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i> Registrarme</button>
+
+                    <i class="fa fa-spinner fa-spin fa-3x colorExporta" ng-show="registerCtrl.signingUp"></i>
+<!--                     <i class="fa fa-user-md"></i> -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="box">
+            <h1>Ingresa</h1>
+
+            <p class="lead">¿Ya estás registrado?</p>
+            <p class="text-muted">Usa tu email y password para ingresar.</p>
+
+            <hr>
+
+            <form name="loginForm2" ng-submit="mainCtrl.loging()" action="javascript:void(0);">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input ng-model="mainCtrl.loginForm.username" type="email" class="form-control" id="email" autocapitalize="none" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input ng-model="mainCtrl.loginForm.pass" type="password" class="form-control" id="password" autocapitalize="none" required>
+                </div>
+                <div class="text-center">
+
+                    <button ng-hide="mainCtrl.logingUp" type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Ingrear</button>
+
+                    <i class="fa fa-spinner fa-spin fa-3x colorExporta" ng-show="mainCtrl.logingUp"></i>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+<!-- /.container -->

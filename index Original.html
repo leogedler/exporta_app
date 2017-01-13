@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="exportatucarro" ng-controller="MainController as mainCtrl">
+
+    <head>
+
+        <base href="/">
+        <meta charset="utf-8" />
+        <meta name="fragment" content="!">
+        <script src="app/meta-tags.js"></script>
+        <meta name="robots" content="{{robot}}">
+        <meta name="viewport" content="width=device-width,height=device-height initial-scale=1">
+        <title ng-bind="pageTitle"></title>
+        <meta name="author" content="Leonardo Gedler" />
+        <meta name="description" content="{{pageDescription}}">
+        <meta property="og:site_name" content="Exportatucarro" />
+        <meta property="og:locale" content="es_ES" />
+        <meta property="og:description" content="{{ogPageDescription}}" />
+<!--         <meta property="fb:admins" content="762849282" />
+        <meta property="fb:app_id" content="992585987472820" /> -->
+        <meta property="og:image" content="{{ogPageImage}}" />
+        <meta property="og:title" content="{{ogPageTitle}}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{url}}" />
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@exportatucarro">
+        <meta name="twitter:title" content="Exportatucarro">
+        <meta name="twitter:description" content="{{twitterDescription}}">
+        <meta name="twitter:creator" content="@exportatucarro">
+        <meta name="twitter:image:src" content="{{twitterImage}}">
+        <meta name="twitter:domain" content="{{url}}">
+        <link rel="shortcut icon" type="image/x-icon" href="Images/exportatucarrofavi.png"/>
+<!--         <meta name="google-site-verification" content="UFrYErGd504atQar8aY2LYRcEkgAlTEUxb6rkbyzA8Y" /> -->
+
+        <!-- CSS -->
+<!--         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="app/css/bootstrap.min.css"/> 
+        <link rel="stylesheet" href="app/css/bootstrap-social.css"/> 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel='stylesheet' href='app/css/loading-bar.min.css' type='text/css' media='all' />
+        <link rel="stylesheet" href="app/css/mystyle.css"/> 
+        <link rel="stylesheet" href="app/css/animate.min.css">
+        <link rel="stylesheet" href="app/css/owl.carousel.css" >
+        <link rel="stylesheet" href="app/css/owl.theme.css" >
+        <link rel="stylesheet" href="app/css/style.green.css"  id="theme-stylesheet">
+<!--         <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'> -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+        <!-- End of CSS --> 
+
+        <!-- Parse, Jquery JavaScrip -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+        <!-- End of Parse, Jquery JavaScrip --> 
+
+        <!-- Angular -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+        <script type="text/javascript" src="app/js/ui-bootstrap-tpls-2.1.4.min.js"></script>
+        <script type='text/javascript' src='app/js/loading-bar.min.js'></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+        <script type='text/javascript' src="app/js/angular-flash.min.js"></script>
+        <script src="app/keys.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/service.js"></script>
+        <script src="app/autos/autos.js"></script>
+        <script src="app/bikes/bikes.js"></script>
+        <script src="app/tires/tires.js"></script>
+        <script src="app/autoDetail/autoDetail.js"></script>
+        <script src="app/bikeDetail/bikeDetail.js"></script>
+        <script src="app/tireDetail/tireDetail.js"></script>
+        <script src="app/register/register.js"></script>
+        <script src="app/profile/profile.js"></script>
+        <script src="app/cart/cart.js"></script>
+        <script src="app/search/search.js"></script>
+        <script src="app/static/static.js"></script>
+        <!-- End of Angular -->
+
+        <!-- Scrips -->
+        <script src="app/js/bootstrap.min.js"></script>
+        <script src="app/js/jquery.cookie.js"></script>
+        <script src="app/js/waypoints.min.js"></script>
+        <script src="app/js/modernizr.js"></script>
+        <script src="app/js/bootstrap-hover-dropdown.js"></script>
+        <script src="app/js/owl.carousel.min.js"></script>
+        <script src="app/js/respond.min.js"></script>
+<!--         // <script src="js/jquery.bgswitcher.js"></script> -->
+
+<!-- <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.angular.min.js"></script>
+<script src="https://cdn.jsdelivr.net/hogan.js/3.0/hogan.min.js"></script>
+        <!-- End of scrips -->
+
+
+        <!-- Google Analytics -->
+        <script>
+            // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            //   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            //   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            //   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            //     ga('create', 'UA-67321112-1', 'auto');
+            //     ga('require', 'displayfeatures');
+            //     ga('send', 'pageview');
+
+        </script>
+        <!-- End Google Analytics -->
+
+        <!-- Google Analytics Tracking -->
+        <script type="text/javascript">
+            // var _gaq = _gaq || [];
+            // _gaq.push(['_setAccount', 'UA-67321112-1']);
+            // _gaq.push(['_trackPageview']);
+
+            // (function() {
+            //     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            //     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            //     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            // })();
+
+        </script>
+        <!-- End of Google Analytics Tracking -->
+
+        
+        <!-- Schema.org info -->
+        <script type="application/ld+json">
+            {
+              "@context": "http://schema.org",
+              "@type": "Organization",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Miami, USA",
+                "postalCode": "33014",
+                "streetAddress": "5470 NW 161st St. Miami Gardens, FL. 33014 USA"
+              },
+              "email": "contacto@exportatucarro.com",
+              "logo": "http://www.exportatucarro.com/images/logo.png",
+              "url": "http://www.exportatucarro.com/",
+              "name": "Exportatucarro",
+              "telephone": "(305) - 720 - 2470"
+            }
+        </script>
+        <!-- End Schema.org info -->
+    </head>
+
+    <body>
+
+        <!-- *** TOPBAR ***
+        _________________________________________________________ -->
+        <div id="top">
+            <div class="container">
+                <div class="col-md-6 offer" data-animate="fadeInDown">
+
+                </div>
+                <div class="col-md-6 pull-right" data-animate="fadeInDown">
+                    <ul ng-hide="mainCtrl.isUser()" class="menu" ng-cloak>
+                        <li><a href data-toggle="modal" data-target="#login-modal">Ingresa</a>
+                        </li>
+                        <li><a href="/registro">Regístrate</a>
+                        </li>
+                    </ul>
+
+                    <ul ng-show="mainCtrl.isUser()" class="menu" ng-cloak>
+                        <li><a href="/perfil" ng-bind="mainCtrl.user.firstName | capitalize"></a>
+                        </li>
+                        <li><a href ng-click="mainCtrl.logOut()">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- *** Login modal *** -->
+            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="Login">Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form name="loginForm" ng-submit="mainCtrl.loging()" action="javascript:void(0);">
+                                <div class="form-group">
+                                    <input ng-model="mainCtrl.loginForm.username" type="email" class="form-control" id="email-modal" placeholder="email" autocapitalize="none" required>
+                                </div>
+                                <div class="form-group">
+                                    <input ng-model="mainCtrl.loginForm.pass" type="password" class="form-control" id="password-modal" placeholder="password" autocapitalize="none" required>
+                                </div>
+
+                                <div class="text-center">
+
+                                    <button ng-hide="mainCtrl.logingUp" class="btn btn-primary"><i class="fa fa-sign-in"></i> Ingresar</button>
+                                    <i class="fa fa-spinner fa-spin fa-3x colorExporta" ng-show="mainCtrl.logingUp"></i>
+                                </div>
+
+                            </form>
+
+                            <div style="margin-top:20px;">
+                                <p class="text-center text-muted">¿No estas registrad@?</p>
+                                <p class="text-center text-muted"><a href="/registro"><strong>Regístrate ahora</strong></a>! Es muy sencillo y te da acceso a ofertas especiales y a mucho más!</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- *** End of Login modal *** -->
+        </div>
+
+        <!-- *** TOP BAR END *** -->
+
+        <!-- *** NAVBAR ***
+        _________________________________________________________ -->
+        <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <a class="navbar-brand home" href="/" data-animate-hover="bounce">
+                        <img src="app/images/logo.png" style="width: 170px" alt="Exportatucarro logo" class="hidden-xs img-responsive">
+                        <img src="app/images/logo.png" style="width: 140px; margin-top:5px;" alt="Exportatucarro logo" class="visible-xs img-responsive"><span class="sr-only">Exporta tu carro - homepage</span>
+                    </a>
+                    <div class="navbar-buttons">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-align-justify"></i>
+                        </button>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                            <span class="sr-only">Toggle search</span>
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <a class="btn btn-default navbar-toggle" href ng-click="mainCtrl.goToCart()" ng-cloak>
+                            <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs" >{{mainCtrl.user.cart.length}} items in cart</span>
+                        </a>
+                    </div>
+                </div>
+                <!--/.navbar-header -->
+
+                <div class="navbar-collapse collapse" id="navigation">
+
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="dropdown yamm-fw">
+                            <a href class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Productos <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="yamm-content">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h5>Productos</h5>
+                                                <ul>
+                                                    <li>
+                                                        <a href="/automoviles">Automóviles</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/motos">Motos</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/cauchos">Cauchos</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/financiamiento">Financiamiento</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-8 hidden-xs" style="max-width: 200px;">
+                                                <div class="banner">
+                                                    <a href="/automoviles">
+                                                        <img src="https://exportatucarro.s3.amazonaws.com/11bc468e-e1a5-4d81-a220-f496fa210c0c_a4.jpg" class="img img-responsive" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="banner">
+                                                    <a href="/motos">
+                                                        <img src="https://exportatucarro.s3.amazonaws.com/bd96fa8e-da63-46f2-9dd4-021e30f5974c_ducati.jpg" class="img img-responsive" alt="">
+                                                    </a>
+                                                </div>
+
+                                                <div class="banner">
+                                                    <a href="/cauchos">
+                                                        <img src="https://exportatucarro.s3.amazonaws.com/36c977ec-cb42-4055-89e4-f34359c0047b_tire.jpeg" class="img img-responsive" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.yamm-content -->
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown yamm-fw">
+                            <a href class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Beneficios <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="yamm-content">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h5>Beneficios</h5>
+                                                <ul>
+                                                    <li>
+                                                        <a href="/pasos-para-la-compra">Pasos para la compra</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/vehiculos-como-parte-de-pago">Vehículos como parte de pago</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/referidos">Gane dinero con nuestro sistema de referidos</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-8 hidden-xs" style="max-width: 200px;">
+                                                <div class="banner">
+                                                    <a href>
+                                                        <img src="app/images/IMG_0341.jpg" class="img img-responsive" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="banner">
+                                                    <a href>
+                                                        <img src="app/images/IMG_07162.jpg" class="img img-responsive" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.yamm-content -->
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+                <!--/.nav-collapse -->
+
+                <div class="navbar-buttons">
+
+                    <div class="navbar-collapse collapse right" id="basket-overview">
+                        <a href ng-click="mainCtrl.goToCart()" class="btn btn-primary navbar-btn" ng-cloak><i class="fa fa-shopping-cart"></i><span class="hidden-sm">{{mainCtrl.user.cart.length}} Productos</span></a>
+                    </div>
+
+                    <div class="navbar-collapse collapse right" id="search-not-mobile">
+                        <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                            <span class="sr-only">Toggle search</span>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="collapse clearfix" id="search">
+
+                    <form name="searchform" ng-submit="mainCtrl.search()" class="navbar-form" role="search" action="javascript:void(0);">
+                        <div class="input-group">
+                            
+<!--                             <input type="text" class="form-control text-center" placeholder="&#xF002; Busqueda" style="font-family:Arial, FontAwesome" name="search" id="search-input" ng-model="mainCtrl.searchInput"/> -->
+
+                            <input class="form-control" placeholder="Búsqueda" id="search-input-header" name="search" type="text" ng-model="mainCtrl.searchWords" autocomplete aa-datasets="mainCtrl.getDatasets()" />
+
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </span>
+
+                        </div>
+                    </form>
+
+                </div>
+                <!--/.nav-collapse -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#navbar -->
+
+        <!-- *** NAVBAR END *** -->
+
+
+        <!-- *** FLASH MESSAGE *** -->
+        <div class="flash">
+            <flash-message>
+                <div class="my-flash"></div>
+            </flash-message>
+
+        </div>  
+        <!-- *** END OF FLASH MESSAGE *** -->
+
+
+        <div id="all">
+
+            <!-- *** CONTENT ***
+            _________________________________________________________ -->
+
+            <div id="main">
+                    
+                <div id="content" ng-view autoscroll="true"></div>
+                        
+            </div>
+            <!-- *** CONTENT END *** -->
+
+            <!-- *** FOOTER ***
+             _________________________________________________________ -->
+            <div id="footer" data-animate="fadeInUp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <h4>Exporta tu carro</h4>
+
+                            <ul>
+                                <li><a href="/nosotros">Nosotros</a>
+                                </li>
+                                <li><a href="/condiciones">Condiciones y términos</a>
+                                </li>
+                                <li><a href="/faq">FAQ</a>
+                                </li>
+                                <li><a href="/contacto">Contáctanos</a>
+                                </li>
+                            </ul>
+
+                            <hr>
+
+                            <h4>Ingreso/Registro</h4>
+
+                            <ul>
+                                <li><a href data-toggle="modal" data-target="#login-modal">Ingresa</a>
+                                </li>
+                                <li><a href="/registro">Regístrate</a>
+                                </li>
+                            </ul>
+
+                            <hr class="hidden-md hidden-lg hidden-sm">
+
+                        </div>
+                        <!-- /.col-md-3 -->
+
+                        <div class="col-md-3 col-sm-6">
+
+                            <h4>Top categorías</h4>
+                            <ul>
+                                <li>
+                                    <a href="category.html">Automóviles</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">Motos</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">Cauchos</a>
+                                </li>
+                                <li>
+                                    <a href="category.html">Financiamiento</a>
+                                </li>
+                            </ul>
+
+                            <hr class="hidden-md hidden-lg">
+
+                        </div>
+                        <!-- /.col-md-3 -->
+
+                        <div class="col-md-3 col-sm-6">
+
+                            <h4>Donde nos encontramos</h4>
+
+                            <p><strong>Main office.</strong>
+                                <br>5470 NW 161 St. 
+                                <br>Miami Gardens
+                                <br>FL. 33014              
+                                <br>
+                                <strong>USA</strong>
+                            </p>
+
+                            <p><strong>Body Shop.</strong>
+                                <br>8254 NW 58th St.
+                                <br>Doral
+                                <br>FL. 33166           
+                                <br>
+                                <strong>USA</strong>
+                            </p>
+
+                            <hr class="hidden-md hidden-lg">
+
+                        </div>
+                        <!-- /.col-md-3 -->
+
+
+
+                        <div class="col-md-3 col-sm-6">
+
+                            <h4>Newsletter</h4>
+
+                            <p class="text-muted">Suscríbete en nuestro newsletter para tener información de eventos, descuentos y muchos más.</p>
+
+                            <div ng-show="!mainCtrl.leadSubmitted">
+                                <form name="leadFormFooter" ng-submit="mainCtrl.submitLead('web footer')" action="javascript:void(0);">
+                                    <div class="input-group">
+                                        <input ng-model="mainCtrl.lead.email" type="email" class="form-control" required>
+                                        <span class="input-group-btn">
+                                            <button ng-show="!mainCtrl.sendingLead" class="btn btn-default" type="submit">Suscribete!</button>
+
+                                            <i class="fa fa-spinner fa-spin" ng-show="mainCtrl.sendingLead"></i>
+                                        </span>
+
+                                    </div>
+                                    <!-- /input-group -->
+                                </form>
+                            </div>
+
+                            <div ng-show="mainCtrl.leadSubmitted">
+
+                                <p><strong>Gracias por suscribirte!!.</strong></p>
+
+                                <button class="btn btn-default" type="button" ng-click="mainCtrl.leadSubmitted = false"><i class="fa fa-arrow-left"></i> Regresar</button>
+
+                            </div>
+
+                            <hr>
+
+                            <h4>Mantente en contacto</h4>
+
+                            <p class="social">
+                                <a href="https://www.facebook.com/exportatucarro/" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/exportatucarro" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                            </p>
+
+
+                        </div>
+                        <!-- /.col-md-3 -->
+
+                    </div>
+                    <!-- /.row -->
+
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- /#footer -->
+
+            <!-- *** FOOTER END *** -->
+
+            <!-- *** COPYRIGHT ***
+            _________________________________________________________ -->
+            <div id="copyright">
+                <div class="container">
+                    <div class="col-md-6">
+                        <p class="pull-left">© 2016 Exporta tu carro.</p>
+
+                    </div>
+                </div>
+            </div>
+            <!-- *** COPYRIGHT END *** -->
+
+        </div>
+        <!-- /#all -->
+
+
+    <!-- *** SCRIPTS TO INCLUDE ***
+    _________________________________________________________ -->
+    <script src="app/js/front.js"></script>
+
+    </body>
+</html>

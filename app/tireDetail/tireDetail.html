@@ -1,0 +1,188 @@
+
+<div class="container-fluid">
+
+    <div class="col-md-12 hidden-xs hidden-lg">
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a>
+            </li>
+            <li><a href="/cauchos">Cauchos</a>
+            </li>
+            <li>{{tireDetailCtrl.tire.model | capitalize}}</li>
+        </ul>
+
+    </div>
+
+    <div class="col-md-12 nopadding">
+
+	    <div class="row productMain">
+	        <div class="col-sm-6 nopadding">
+
+	            <div class="mainImage">
+	            	<div id="carousel-custom" ng-show="tireDetailCtrl.tire.images" >
+					    <div uib-carousel active="tireDetailCtrl.imageActive" interval="tireDetailCtrl.carouselInterval" no-wrap="false" no-transition="true">
+					    	<div uib-slide ng-repeat="slide in tireDetailCtrl.tire.images track by $index" index="$index">
+					        	<img ng-src="{{slide.image.url}}" class="img-responsive">
+					      	</div>
+
+					    </div>
+
+
+					    <!-- Indicators -->
+					    <ol class='carousel-indicators'>
+					        <li ng-repeat="slide in tireDetailCtrl.tire.images" ng-click="tireDetailCtrl.imageActive = $index" ng-class="{'active': tireDetailCtrl.imageActive == $index}">
+
+					        	<div>
+					        		<img ng-src='{{slide.image.url}}' alt='' class="img-responsive" />
+					        	</div>
+					        </li>
+					    </ol>
+
+				    </div>
+
+				</div>
+
+
+	        </div>
+
+
+	        <div class="boxDraggable hidden-sm hidden-xs" id="draggable">
+
+	        	<div style="padding-top:20px; padding-left:20px;">
+	        		<i class="fa fa-arrows colorExporta" aria-hidden="true"></i>
+	        	</div>
+
+	        	<div class="data">
+	                <h3 class="text-center">{{tireDetailCtrl.tire.dimensions | uppercase}} {{tireDetailCtrl.tire.make | capitalize}} {{tireDetailCtrl.tire.model | uppercase}} {{tireDetailCtrl.tire.year}}</h3>
+
+
+	                <h4 class="text-center">{{tireDetailCtrl.tire.shortDescription}}</h4>
+	                <p class="goToDescription"><a href="#details" class="scroll-to">Ver detalles</a>
+	                </p>
+	                <p class="price">${{tireDetailCtrl.tire.price | number}}</p>
+
+
+
+	                <div class="col-md-12">
+                        <div class="form-group text-center">
+                            <label for="new-auto-countries">Países disponibles <span class="colorExporta">*</span></label>
+                            <select id="new-auto-countries" title="Tipo" class="form-control" id="type" ng-model="tireDetailCtrl.country" ng-options="country.country for country in tireDetailCtrl.tire.countries" ng-change="tireDetailCtrl.onCountrySelected()" required>
+                                <option value="" disabled selected>Selecciona</option> 
+                            </select>
+                        </div>
+                    </div>
+
+
+                   	<div class="text-center" ng-show="tireDetailCtrl.countrySelected">
+	                	<h4>Precio para {{tireDetailCtrl.country.country | capitalize}}</h4>
+	                	<p class="price">${{tireDetailCtrl.totalPrice | number}}</p>
+	                </div>
+
+
+
+	                <p class="text-center buttons">
+	                   	<a href ng-click="tireDetailCtrl.addingToCart || tireDetailCtrl.addToCart()" class="btn btn-primary" ng-disabled="tireDetailCtrl.addingToCart"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a> 
+	                   	<a href ng-click="tireDetailCtrl.uptadingWish || tireDetailCtrl.addOrRemodeToWishes()" class="btn btn-default" ng-disabled="tireDetailCtrl.uptadingWish"><i class="fa fa-heart" ng-class="{'colorRed': tireDetailCtrl.isWished}"></i> Me gusta</a>
+	                </p>
+	            </div>
+
+	        </div>
+
+
+
+	        <div class="col-sm-12 hidden-lg hidden-md nopadding">
+	            <div class="data">
+	                <h3 class="text-center">{{tireDetailCtrl.tire.dimensions | uppercase}} {{tireDetailCtrl.tire.make | capitalize}} {{tireDetailCtrl.tire.model | uppercase}} {{tireDetailCtrl.tire.year}}</h3>
+
+
+	                <h4 class="text-center">{{tireDetailCtrl.tire.shortDescription}}</h4>
+	                <p class="goToDescription"><a href="#details" class="scroll-to">Ver detalles</a>
+	                </p>
+	                <p class="price">${{tireDetailCtrl.tire.price | number}}</p>
+
+	                <p class="text-center buttons">
+	                   	<a href ng-click="tireDetailCtrl.addingToCart || tireDetailCtrl.addToCart()" class="btn btn-primary" ng-disabled="tireDetailCtrl.addingToCart"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a> 
+	                   	<a href ng-click="tireDetailCtrl.uptadingWish || tireDetailCtrl.addOrRemodeToWishes()" class="btn btn-default" ng-disabled="tireDetailCtrl.uptadingWish"><i class="fa fa-heart" ng-class="{'colorRed': tireDetailCtrl.isWished}"></i> Me gusta</a>
+	                </p>
+
+
+	            </div>
+	        </div>
+
+	    </div>
+
+    </div>
+
+    <div class="col-md-12 nopadding">
+
+    	<div class="row detailBox" id="details">
+	    	<div class="container">
+	    		<div>
+		            <h4>Características</h4>
+
+						<table class="table" style="max-width: 400px;">
+						    <tbody>
+						    	<thead>
+
+							    </thead>
+						      <tr>
+						        <td>Rin</td>
+						        <td><strong>R{{tireDetailCtrl.tire.diameter}}</strong></td>
+						      </tr>
+						      <tr>
+						        <td>Ancho</td>
+						        <td><strong>{{tireDetailCtrl.tire.width}}</strong></td>
+						      </tr>
+						      <tr>
+						        <td>Perfil</td>
+						        <td><strong>{{tireDetailCtrl.tire.height}}</strong></td>
+						      </tr>
+						      <tr>
+						        <td>Tipo de patrón</td>
+						        <td><strong>{{tireDetailCtrl.tire.type | capitalize}}</strong></td>
+						      </tr>
+						    </tbody>
+						</table>
+
+		        </div>
+		        <hr>
+		        <div>
+		           	<h4>Descripción</h4>
+
+		            <blockquote>
+		                <p>{{tireDetailCtrl.tire.description}}</p>
+		            </blockquote>
+
+	            </div>
+
+
+	            <hr>
+	            <div class="social">
+	                <h4>Comparte con tus amigos</h4>
+	                <p>
+	                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+	                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+	                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+	                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+	                </p>
+	            </div>
+
+
+	        </div>
+
+	    </div>
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+  $( function() {
+    $( "#draggable" ).draggable();
+  });
+
+</script>
+
+
+

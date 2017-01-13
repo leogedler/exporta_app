@@ -1,0 +1,504 @@
+    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
+    <div class="container">
+
+        <div class="col-md-12">
+
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a>
+                </li>
+                <li ng-show="cartCtrl.cart">Carrito</li>
+	            <li ng-show="cartCtrl.checkout">
+	                <a href="/carrito">Carrito</a>
+	            </li>
+	            <li ng-show="cartCtrl.checkout">Checkout</li>
+            </ul>
+
+        </div>
+
+
+        <div class="col-md-12">
+
+            <!-- *** Cart *** -->
+            <div ng-show="cartCtrl.cart" id="basket">
+
+        	    <div class="box animated bounceInLeft">
+
+                    <div>
+
+                        <h1>Carrito de compras</h1>
+                        <p class="text-muted">Actualmente tienes {{cartCtrl.user.cart.length}} producto(s) en tu carrito.</p>
+                        
+                        <div class="table-responsive">
+
+                        	<div ng-show="!cartCtrl.noItems">
+
+                        		<!-- .tire product -->
+                        		<div ng-show="cartCtrl.tireItem">
+
+		                            <table class="table">
+		                                <thead>
+		                                    <tr>
+		                                        <th colspan="2">Producto</th>
+		                                        <th>Cantidad</th>
+		                                        <th>Precio unitario</th>
+		                                        <th colspan="2">Total</th>
+		                                    </tr>
+		                                </thead>
+		                                <tbody>
+		                                    <tr ng-repeat="item in cartCtrl.user.cart">
+
+		                                        <td ng-show="item.category == 'tires'">
+		                                            <a ng-href="/#!/caucho/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.width}}-{{item.height}}-R{{item.diameter}}">
+		                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+		                                            </a>
+		                                        </td>
+		                                        <td >
+		                                        	<a ng-href="/#!/caucho/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.width}}-{{item.height}}-R{{item.diameter}}" >
+		                                        		<div>
+	                                                        <span>{{item.make | capitalize}}</span>
+	                                                    </div>
+	                                                    <div>
+	                                                        <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+	                                                    </div>
+	                                                    <div>
+	                                                        <span>{{item.dimensions}}</span>
+	                                                    </div>
+		                                        	</a>
+		                                        </td>
+
+		                                        <td>
+		                                            <input type="number" ng-model="item.quantity" ng-change="cartCtrl.getTotal(cartCtrl.user.cart)" class="form-control" min="1">
+		                                        </td>
+		                                        <td>${{item.price | number}}</td>
+		                                        
+		                                        <td><span ng-show="item.reservationPrice">${{(item.reservationPrice*item.quantity)-item.discount | number}}</span><span ng-show="!item.reservationPrice">${{(item.price*item.quantity)-item.discount | number}}</span></td>
+		                                        
+		                                        <td><a href ng-click="cartCtrl.removeFromCart(item.objectId, item.category)" ng-class="{'disabled': cartCtrl.removingFromCart}"><i class="fa fa-trash-o"></i> Eliminar</a>
+		                                        </td>
+		                              
+		                                    </tr>
+
+		                                </tbody>
+<!-- 		                                <tfoot>
+		                                    <tr>
+		                                        <th colspan="5">Total a pagar</th>
+		                                        <th colspan="2">${{cartCtrl.totalToPay | number}}</th>
+		                                    </tr>
+		                                </tfoot> -->
+		                            </table>
+	                            </div>
+
+	                            <!-- .vehicle product -->
+	                            <div ng-show="cartCtrl.vehicleItem">
+
+	                            	<table class="table">
+		                                <thead>
+		                                    <tr>
+		                                        <th colspan="2">Producto</th>
+		                                        <th>Color</th>
+		                                        <th>Precio base</th>
+		                                        <th>Precio de reservación</th>
+<!-- 		                                        <th colspan="2">Total</th> -->
+		                                    </tr>
+		                                </thead>
+		                              	<tbody>
+		                                    <tr ng-repeat="item in cartCtrl.user.cart">
+
+		                                    	<!-- .auto product -->
+		                                        <td ng-show="item.category == 'autos'">
+		                                            <a href="/#!/automovil/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+		                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+		                                            </a>
+		                                        </td>
+		                                        <td ng-show="item.category == 'autos'">
+		                                        	<a href="/#!/automovil/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+		                                        		<div>
+	                                                        <span>{{item.make | capitalize}}</span>
+	                                                    </div>
+	                                                    <div>
+	                                                        <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+	                                                    </div>
+	                                                    <div>
+	                                                        <span>{{item.year}}</span>
+	                                                    </div>
+		                                        	</a>
+		                                        </td>
+
+		                                        <!-- .bike product -->
+		                                        <td ng-show="item.category == 'bikes'">
+		                                            <a ng-href="/#!/moto/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+		                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+		                                            </a>
+		                                        </td>
+		                                        <td ng-show="item.category == 'bikes'">
+		                                        	<a ng-href="/#!/moto/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+		                                        		<div>
+	                                                        <span>{{item.make | capitalize}}</span>
+	                                                    </div>
+	                                                    <div>
+	                                                        <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+	                                                    </div>
+	                                                    <div>
+	                                                        <span>{{item.year}}</span>
+	                                                    </div>
+		                                        	</a>
+		                                        </td>
+
+		                                        <td ng-show="item.category == 'autos'">
+		                                            <select class="form-control" id="autoColor" ng-model="item.wishColor" ng-options="color for color in cartCtrl.autoColor">
+			                                		</select>
+		                                        </td>
+
+		                                      	<td ng-show="item.category == 'bikes'">
+		                                            <select class="form-control" id="bikeColor" ng-model="item.wishColor" ng-options="color for color in cartCtrl.bikeColor">
+			                                		</select>
+		                                        </td>
+
+		                                        <td>${{item.price | number}}</td>
+		                                        <td>${{item.reservationPrice | number}}</td>
+		                                        
+<!-- 		                                        <td><span ng-show="item.reservationPrice">${{(item.reservationPrice*item.quantity)-item.discount | number}}</span><span ng-show="!item.reservationPrice">${{(item.price*item.quantity)-item.discount | number}}</span></td> -->
+		                                        
+		                                        <td><a href ng-click="cartCtrl.removeFromCart(item.objectId, item.category)" ng-class="{'disabled': cartCtrl.removingFromCart}"><i class="fa fa-trash-o"></i> Eliminar</a>
+		                                        </td>
+		                              
+		                                    </tr>
+
+		                                </tbody>
+<!-- 		                                <tfoot>
+		                                    <tr>
+		                                        <th colspan="5">Total a pagar</th>
+		                                        <th colspan="2">${{cartCtrl.totalToPay | number}}</th>
+		                                    </tr>
+		                                </tfoot> -->
+		                            </table>
+
+	                            </div>
+
+                            </div>
+
+                        </div>
+                        <!-- /.table-responsive -->
+
+                        <div class="box-footer">
+
+                            <div class="pull-left">
+                                <a href="/#!/" class="btn btn-default"><i class="fa fa-chevron-left"></i> Salir del carrito</a>
+                            </div>
+                            <div class="pull-right">
+
+                                <button ng-show="!cartCtrl.noItems" type="button" class="btn btn-primary" ng-click="cartCtrl.goToCheckOut()">Continuar <i class="fa fa-chevron-right"></i>
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.box -->
+
+            </div>
+            <!-- *** End of Cart *** -->
+
+
+            <!-- *** Checkout *** -->
+        	<div ng-show="cartCtrl.checkout" id="checkout">
+
+                <div class="box animated bounceInLeft">
+                    <div>
+                        <h1>Checkout</h1>
+                        <ul class="nav nav-pills nav-justified">
+                            <li ng-class="{'active': cartCtrl.checkout2, 'disabled': !cartCtrl.checkout2&&!cartCtrl.checkout3}"><a href ><i class="fa fa-user"></i><br>Confirma tus datos</a>
+                            </li>
+<!--                             <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                            </li> -->
+<!--                             <li ng-class="{'active': cartCtrl.checkout3, 'disabled': !cartCtrl.checkout3&&!cartCtrl.checkout4}"><a href ><i class="fa fa-money"></i><br>Método de pago</a>
+                            </li> -->
+                            <li ng-class="{'active': cartCtrl.checkout3, 'disabled': !cartCtrl.checkout2}"><a href ><i class="fa fa-eye"></i><br>Revisión de orden</a>
+                            </li>
+                        </ul>
+
+                        <div class="content">
+
+                        	<!-- *** Personal info *** -->
+                        	<div ng-show="cartCtrl.checkout2">
+
+	                            <div class="row">
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <label for="firstname">Nombre</label>
+	                                        <input type="text" class="form-control" id="firstname" ng-model="cartCtrl.user.firstName">
+	                                    </div>
+	                                </div>
+	                                <div class="col-sm-6">
+	                                    <div class="form-group">
+	                                        <label for="lastname">Apellido</label>
+	                                        <input type="text" class="form-control" id="lastname" ng-model="cartCtrl.user.lastName">
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <!-- /.row -->
+
+	                            <div class="row">
+
+	                            	<div class="col-sm-6">
+			                            <div class="form-group">
+			                                <label for="email">Email</label>
+			                                <input ng-model="cartCtrl.user.email" type="email" class="form-control" id="email" required>
+			                            </div>
+			                        </div>
+			                        <div class="col-sm-6">
+			                            <div class="form-group">
+			                                <label for="phone">Teléfono</label>
+			                                <input ng-model="cartCtrl.user.phone" type="text" class="form-control" id="phone" required>
+			                            </div>
+			                        </div>
+
+			                        <div class="col-sm-12">
+		                                <div class="form-group">
+		                                    <label for="address">Dirección de destino<span class="colorRed" style="font-size: 25px;">*</span></label>
+		                                    <textarea class="form-control" ng-model="cartCtrl.user.address" placeholder="Calle 5 con calle 6, Ciudad....." required></textarea>
+		                                </div>
+		                            </div>
+
+		                           	<div class="col-sm-12">
+			                            <div class="form-group">
+			                                <label for="country">País de destino (Selecciona para continuar)<span class="colorRed" style="font-size: 25px;">*</span></label>
+				                            <blockquote>
+				                            	<p><em> Este artículo solo se puede exportar a los países que aparecen en las opciones.</em></p>
+				                        	</blockquote>
+			                                <select class="form-control" id="country" ng-options="country.country for country in cartCtrl.countries" ng-model="cartCtrl.destCountry" ng-change="cartCtrl.selectCountry()" required>
+			                                	<option value="" disabled selected>Selecciona</option> 
+			                                </select>
+			                            </div>
+
+			                        </div>
+	                            </div>
+	                            <!-- /.row -->
+
+                            </div>
+                            <!-- *** End of personal info *** -->
+
+                            <!-- *** Payment method *** -->
+<!--                             <div ng-show="cartCtrl.checkout3">
+
+                            	<div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="box payment-method text-center">
+
+                                            <h4>Paypal</h4>
+
+                                            <p>We like it all.</p>
+
+                                            <div class="box-footer text-center">
+
+                                                <input type="radio" name="payment" value="payment1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- *** End of payment method *** -->
+
+                            <!-- *** Final review *** -->
+                            <div ng-show="cartCtrl.checkout3">
+
+
+                            	<!-- .tire product -->
+                        		<div ng-show="cartCtrl.tireItem">
+
+			                        <div class="table-responsive">
+			                            <table class="table">
+			                                <thead>
+			                                    <tr>
+			                                        <th colspan="2">Producto</th>
+			                                        <th>Cantidad</th>
+			                                        <th>País de destino</th>
+			                                        <th>Precio total unitario</th>
+			                                        <th>Precio de reservación</th>
+			                                        <th colspan="2">Total</th>
+			                                    </tr>
+			                                </thead>
+			                                <tbody>
+			                                    <tr ng-repeat="item in cartCtrl.user.cart">
+
+			                                        <!-- .tire product -->
+			                                        <td ng-show="item.category == 'tires'">
+			                                            <a ng-href="/#!/caucho/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.width}}-{{item.height}}-R{{item.diameter}}">
+			                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+			                                            </a>
+			                                        </td>
+			                                        <td ng-show="item.category == 'tires'">
+			                                        	<a ng-href="/#!/caucho/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.width}}-{{item.height}}-R{{item.diameter}}" >
+				                                        	<div>
+		                                                        <span>{{item.make | capitalize}}</span>
+		                                                    </div>
+		                                                    <div>
+		                                                        <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+		                                                    </div>
+		                                                    <div>
+		                                                        <span>{{item.dimensions}}</span>
+		                                                    </div>
+			                                        	</a>
+			                                        </td>
+
+			                                        <td>
+			                                            <input type="number" ng-model="item.quantity" class="form-control" min="1" disabled>
+			                                        </td>
+
+			                                      	<td>{{cartCtrl.destCountry.country | capitalize}}</td>
+			                                        <td>${{item.price + cartCtrl.destCountry.fee | number}}</td>
+			                                        <td><span ng-show="item.reservationPrice">${{item.reservationPrice | number}}</span><span ng-show="!item.reservationPrice">-</span></td>
+			                                        
+			                                        <td>${{((item.price + cartCtrl.destCountry.fee)*item.quantity) | number}}</td>
+			                                       
+			                                    </tr>
+
+			                                </tbody>
+			                                <tfoot>
+			                                    <tr>
+			                                        <th colspan="6" class="text-right"><h3>Total a pagar</h3></th>
+			                                        <th colspan="2"><h3 class="colorExporta">${{cartCtrl.totalOrder | number}}</h3></th>
+			                                    </tr>
+			                                </tfoot>
+			                            </table>
+
+			                        </div>
+			                        <!-- /.table-responsive -->
+		                        </div>	
+
+
+		                       	<!-- .vehicle product -->
+	                            <div ng-show="cartCtrl.vehicleItem">
+
+	                            	<div class="table-responsive">
+			                            <table class="table">
+			                                <thead>
+			                                    <tr>
+			                                        <th colspan="2">Producto</th>
+			                                        <th>Color</th>
+			                                        <th>País de destino</th>
+			                                        <th>Reservación</th>
+			                                        <th>Precio Total</th>
+			                                    </tr>
+			                                </thead>
+			                                <tbody>
+			                                    <tr ng-repeat="item in cartCtrl.user.cart">
+
+			                                    	<!-- .auto product -->
+			                                        <td ng-show="item.category == 'autos'">
+			                                            <a href="/#!/automovil/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+			                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+			                                            </a>
+			                                        </td>
+			                                        <td ng-show="item.category == 'autos'">
+			                                        	<a href="/#!/automovil/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+				                                       		<div>
+		                                                        <span>{{item.make | capitalize}}</span>
+		                                                    </div>
+		                                                    <div>
+		                                                        <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+		                                                    </div>
+		                                                    <div>
+		                                                        <span>{{item.year}}</span>
+		                                                    </div>
+			                                        	</a>
+			                                        </td>
+
+			                                        <!-- .bike product -->
+			                                        <td ng-show="item.category == 'bikes'">
+			                                            <a ng-href="/#!/moto/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+			                                                <img ng-src="{{item.mainImage.url}}" class="img-responsive" alt="">
+			                                            </a>
+			                                        </td>
+			                                        <td ng-show="item.category == 'bikes'">
+			                                        	<a ng-href="/#!/moto/{{item.objectId}}/{{item.make}}-{{item.model}}-{{item.year}}" >
+				                                        	<div>
+		                                                        <span>{{item.make | capitalize}}</span>
+		                                                    </div>
+		                                                    <div>
+		                                                        <span>{{item.model | capitalize}} {{item.modelDetail | capitalize}}</span>
+		                                                    </div>
+		                                                    <div>
+		                                                        <span>{{item.year}}</span>
+		                                                    </div>
+			                                        	</a>
+			                                        </td>
+			                                       
+			                                        <td>{{item.wishColor}}</td>
+
+			                                      	<td>{{cartCtrl.destCountry.country | capitalize}}</td>
+			                                     
+			                                        <td>${{item.reservationPrice | number}}</td>
+
+			                                       	<td>${{item.price + cartCtrl.destCountry.fee | number}}</td>
+			                                        			                                       
+			                                    </tr>
+
+			                                </tbody>
+			                                <tfoot>
+			                                    <tr>
+			                                        <th colspan="5" class="text-right"><h3>Total a pagar</h3></th>
+			                                        <th colspan="2"><h3 class="colorExporta">${{cartCtrl.totalOrder | number}}</h3></th>
+			                                    </tr>
+			                                </tfoot>
+			                            </table>
+			                        </div>	
+			                        <!-- /.table-responsive -->
+	                            </div>	
+
+                            </div>	
+
+                        </div>
+
+                        <div class="box-footer">
+
+                        	<div ng-show="cartCtrl.checkout2">
+	                            <div class="pull-left">
+	                                <a href="/#!/carrito" class="btn btn-default"><i class="fa fa-chevron-left"></i>Regresar al carrito</a>
+	                            </div>
+	                            <div class="pull-right">
+	                                <button type="button" class="btn btn-primary" ng-click="cartCtrl.goToCheckOut3()" ng-disabled="!cartCtrl.countrySelected || !cartCtrl.user.address">Continuar<i class="fa fa-chevron-right"></i>
+	                                </button>
+	                            </div>
+                            </div>
+
+<!--                             <div ng-show="cartCtrl.checkout3">
+	                            <div class="pull-left">
+	                                <button class="btn btn-default" ng-click="cartCtrl.checkout3 = false; cartCtrl.checkout2 = true"><i class="fa fa-chevron-left" ></i>Regresar</button>
+	                            </div>
+	                            <div class="pull-right">
+	                                <button type="button" class="btn btn-primary" ng-click="cartCtrl.goToCheckOut4()">Continuar<i class="fa fa-chevron-right"></i>
+	                                </button>
+	                            </div>
+                            </div> -->
+
+                            <div ng-show="cartCtrl.checkout3">
+	                            <div class="pull-left">
+	                                <button class="btn btn-default" ng-click="cartCtrl.checkout3 = false; cartCtrl.checkout2 = true"><i class="fa fa-chevron-left" ></i>Regresar</button>
+	                            </div>
+	                            <div class="pull-right">
+
+	                            	<div ng-show="cartCtrl.vehicleItem">
+		                                <button type="button" class="btn btn-primary" ng-click="cartCtrl.placeAnOrder()">Registrar la order<i class="fa fa-chevron-right"></i>
+		                                </button>
+	                                </div>
+
+	                                <div ng-show="cartCtrl.tireItem">
+	                                	<div id="paypal-button"></div> 
+	                                </div>
+
+	                            </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- *** End of Checkout *** -->
+        </div>
+
+    </div>
+    <!-- /.container -->

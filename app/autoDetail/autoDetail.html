@@ -1,0 +1,304 @@
+<div class="container-fluid">
+
+    <div class="col-md-12 hidden-xs hidden-lg">
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a>
+            </li>
+            <li><a href="/automoviles">Automóviles</a>
+            </li>
+            <li><a ng-href="/automoviles/{{autoDetailCtrl.auto.make}}">{{autoDetailCtrl.auto.make | capitalize}}</a>
+            </li>
+            <li>{{autoDetailCtrl.auto.model | capitalize}}</li>
+        </ul>
+
+    </div>
+
+    <div class="col-md-12 nopadding">
+
+	    <div class="row productMain">
+	        <div class="col-sm-12 nopadding">
+<!-- 	            <div id="mainImage">
+	                <img style="width: 800px;" ng-src="{{autoDetailCtrl.auto.mainImage.url}}" alt="" class="img-responsive">
+	            </div> -->
+
+
+	            <div class="mainImage">
+	            	<div id="carousel-custom" ng-show="autoDetailCtrl.auto.images" >
+					    <div uib-carousel active="autoDetailCtrl.imageActive" interval="autoDetailCtrl.carouselInterval" no-wrap="false" no-transition="true">
+					    	<div uib-slide ng-repeat="slide in autoDetailCtrl.auto.images track by $index" index="$index">
+					        	<img ng-src="{{slide.image.url}}" class="img-responsive">
+					      	</div>
+
+					    </div>
+
+
+					    <!-- Indicators -->
+					    <ol class='carousel-indicators'>
+					        <li ng-repeat="slide in autoDetailCtrl.auto.images" ng-click="autoDetailCtrl.imageActive = $index" ng-class="{'active': autoDetailCtrl.imageActive == $index}">
+
+					        	<div>
+					        		<img ng-src='{{slide.image.url}}' alt='' class="img-responsive" />
+					        	</div>
+					        </li>
+					    </ol>
+
+				    </div>
+
+				</div>
+
+
+
+
+
+<!-- 	            <div ng-show="autoDetailCtrl.auto.condition == 'new'" class="ribbon new">
+	                <div class="theribbon">NUEVO</div>
+	                <div class="ribbon-background"></div>
+	            </div> -->
+	            <!-- /.ribbon -->
+
+<!-- 	            <div ng-show="autoDetailCtrl.auto.condition == 'used'" class="ribbon gift">
+	                <div class="theribbon">USADO</div>
+	                <div class="ribbon-background"></div>
+	            </div> -->
+	            <!-- /.ribbon -->
+
+
+<!-- 	           	<div class="row" id="thumbs">
+	                <div ng-repeat="img in autoDetailCtrl.auto.images" class="col-xs-4">
+	                    <a ng-href="{{img.image.url}}" class="thumb" ng-click="autoDetailCtrl.imageActive = $index">
+	                        <img ng-src="{{img.image.url}}" alt="" class="img-responsive">
+	                    </a>
+	                </div>
+
+	            </div> -->
+
+	        </div>
+
+
+	        <div class="boxDraggable hidden-sm hidden-xs" id="draggable">
+
+	        	<div style="padding-top:20px; padding-left:20px;">
+	        		<i class="fa fa-arrows colorExporta" aria-hidden="true"></i>
+	        	</div>
+	        	<div class="data">
+	                <h3 class="text-center">{{autoDetailCtrl.auto.make | capitalize}} {{autoDetailCtrl.auto.model | capitalize}} {{autoDetailCtrl.auto.modelDetail | capitalize}} <span class="year">{{autoDetailCtrl.auto.year}}</span></h3>
+	                <p class="goToDescription"><a href="#details" class="scroll-to">Ver detalles</a>
+	                </p>
+
+	                <div class="text-center">
+	                	<p>Precio Base <span class="countryPrice">${{autoDetailCtrl.auto.price | number}}</span></p>
+	                </div>
+
+
+	                <div class="col-md-12">
+                        <div class="form-group text-center">
+                            <label for="new-auto-countries">Países disponibles <span class="colorExporta">*</span></label>
+                            <select id="new-auto-countries" title="Tipo" class="form-control" id="type" ng-model="autoDetailCtrl.country" ng-options="country.country for country in autoDetailCtrl.auto.countries" ng-change="autoDetailCtrl.onCountrySelected()" required>
+                                <option value="" disabled selected>Selecciona</option> 
+                            </select>
+                        </div>
+                    </div>
+
+
+                   	<div class="text-center" ng-show="autoDetailCtrl.countrySelected">
+	                	<h4>Precio para {{autoDetailCtrl.country.country | capitalize}}</h4>
+	                	<p class="price">${{autoDetailCtrl.totalPrice | number}}</p>
+	                </div>
+
+
+	                <p class="text-center buttons">
+	                    <a href ng-click="autoDetailCtrl.addingToCart || autoDetailCtrl.addToCart()" class="btn btn-primary" ng-disabled="autoDetailCtrl.addingToCart"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a> 
+	                    <a href ng-click="autoDetailCtrl.uptadingWish || autoDetailCtrl.addOrRemodeToWishes()" class="btn btn-default" ng-disabled="autoDetailCtrl.uptadingWish"><i class="fa fa-heart" ng-class="{'colorRed': autoDetailCtrl.isWished}"></i> Me gusta</a>
+	                </p>
+
+	            </div>
+
+	        </div>
+
+
+
+
+	        <div class="col-sm-12 hidden-lg hidden-md nopadding">
+	            <div class="data">
+	                <h3 class="text-center">{{autoDetailCtrl.auto.make | capitalize}} {{autoDetailCtrl.auto.model | capitalize}} {{autoDetailCtrl.auto.modelDetail | capitalize}} <span class="year">{{autoDetailCtrl.auto.year}}</span></h3>
+	                <p class="goToDescription"><a href="#details" class="scroll-to">Ver detalles</a>
+	                </p>
+
+	                <div class="text-center">
+	                	<p>Precio Base <span class="countryPrice">${{autoDetailCtrl.auto.price | number}}</span></p>
+	                </div>
+
+
+	                <div class="col-md-12">
+                        <div class="form-group text-center">
+                            <label for="new-auto-countries">Países disponibles <span class="colorExporta">*</span></label>
+                            <select id="new-auto-countries" title="Tipo" class="form-control" id="type" ng-model="autoDetailCtrl.country" ng-options="country.country for country in autoDetailCtrl.auto.countries" ng-change="autoDetailCtrl.onCountrySelected()" required>
+                                <option value="" disabled selected>Selecciona</option> 
+                            </select>
+                        </div>
+                    </div>
+
+
+                   	<div class="text-center" ng-show="autoDetailCtrl.countrySelected">
+	                	<h4>Precio para {{autoDetailCtrl.country.country | capitalize}}</h4>
+	                	<p class="price">${{autoDetailCtrl.totalPrice | number}}</p>
+	                </div>
+
+
+
+
+<!--             		<div ng-show="autoDetailCtrl.auto.venezuelaPrice" class="countryPriceDiv">
+	                	<img src="/app/images/venezuela.png" class="img-responsive">
+	                	<p class="countryPrice">${{autoDetailCtrl.auto.venezuelaPrice | number}}</p>
+	                </div>
+	                <div ng-show="autoDetailCtrl.auto.ecuadorPrice" class="countryPriceDiv">
+	                	<img src="/app/images/ecuador.png" class="img-responsive">
+	                	<p class="countryPrice">${{autoDetailCtrl.auto.ecuadorPrice | number}}</p>
+	                </div>
+	                <div ng-show="autoDetailCtrl.auto.peruPrice" class="countryPriceDiv">
+	                	<img src="/app/images/peru.png" class="img-responsive">
+	                	<p class="countryPrice">${{autoDetailCtrl.auto.peruPrice | number}}</p>
+	                </div> -->
+
+	                <p class="text-center buttons">
+	                    <a href ng-click="autoDetailCtrl.addingToCart || autoDetailCtrl.addToCart()" class="btn btn-primary" ng-disabled="autoDetailCtrl.addingToCart"><i class="fa fa-shopping-cart"></i> Agregar al carrito</a> 
+	                    <a href ng-click="autoDetailCtrl.uptadingWish || autoDetailCtrl.addOrRemodeToWishes()" class="btn btn-default" ng-disabled="autoDetailCtrl.uptadingWish"><i class="fa fa-heart" ng-class="{'colorRed': autoDetailCtrl.isWished}"></i> Me gusta</a>
+	                </p>
+
+	            </div>
+	        </div>
+
+	    </div>
+
+    </div>
+
+
+    <div class="col-md-12 nopadding">
+
+	    <div class="row detailBox" id="details">
+
+	    	<div class="container">
+
+	    		<div>
+		            <h4>Características</h4>
+
+	            	<table class="table" style="max-width: 400px;">
+					    <tbody>
+					    	<thead>
+
+						    </thead>
+							<tr>
+						        <td>Año</td>
+						        <td><strong>{{autoDetailCtrl.auto.year}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Millage</td>
+						        <td><strong>{{autoDetailCtrl.auto.mileage}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Transmisión</td>
+						        <td><strong>{{autoDetailCtrl.auto.transmission | capitalize}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Motor</td>
+						        <td><strong>{{autoDetailCtrl.auto.engine | capitalize}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Tipo</td>
+						        <td><strong>{{autoDetailCtrl.auto.type | capitalize}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Color exterior</td>
+						        <td><strong>{{autoDetailCtrl.auto.exteriorColor | capitalize}}</strong></td>
+						    </tr>
+						    <tr>
+						        <td>Color interior</td>
+						        <td><strong>{{autoDetailCtrl.auto.interiorColor | capitalize}}</strong></td>
+						    </tr>
+					    </tbody>
+					</table>
+
+		        </div>
+		        <hr>
+		        <div>
+	            	<h4>Extras</h4>
+	            	<blockquote>
+	            		<p>{{autoDetailCtrl.auto.features}}</p>
+	            	</blockquote>
+	            </div>
+
+<!-- 	            <div>
+		            <h4>Financiamiento</h4>
+		            <ul>
+		                <li>Te aceptamos tu automóvil como forma de pago. (Solo para automóviles en EEUU)</li>
+		                <li>Reserva ahora y obten un descuento del <strong>10%</strong>. (Solo válido para reservar por internet.)</li>
+		            </ul>
+	            </div> -->
+
+
+
+	            <hr>
+	            <div class="social">
+	                <h4>Comparte con tus amigos</h4>
+	                <p>
+	                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+	                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+	                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+	                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+	                </p>
+	            </div>
+
+
+        	</div>
+	    </div>
+
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+
+  $( function() {
+    $( "#draggable" ).draggable();
+  });
+
+
+
+
+	// function productDetailGallery(confDetailSwitch) {
+	//     $('.thumb:first').addClass('active');
+	//     // timer = setInterval(autoSwitch, confDetailSwitch);
+	//     $(".thumb").click(function(e) {
+	// 		switchImage($(this));
+	// 		// clearInterval(timer);
+	// 		// timer = setInterval(autoSwitch, confDetailSwitch);
+	// 		e.preventDefault();
+	//     });
+	  //   $('#mainImage').hover(function() {
+			// clearInterval(timer);
+		 //    }, function() {
+			// timer = setInterval(autoSwitch, confDetailSwitch);
+	  //   });
+
+	  //   function autoSwitch() {
+			// var nextThumb = $('.thumb.active').closest('div').next('div').find('.thumb');
+			// if (nextThumb.length == 0) {
+			//     nextThumb = $('.thumb:first');
+			// }
+			// switchImage(nextThumb);
+	  //   }
+
+	  //   function switchImage(thumb) {
+			// $('.thumb').removeClass('active');
+			// var bigUrl = thumb.attr('href');
+			// thumb.addClass('active');
+			// $('#mainImage img').attr('src', bigUrl);
+	  //   }
+
+	// }
+
+
+</script>
+

@@ -1,0 +1,420 @@
+<div class="container">
+
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a>
+            </li>
+            <li>{{staticCtrl.title}}</li>
+        </ul>
+    </div>
+
+    <div class="col-md-3">
+        <!-- *** PAGES MENU ***
+_________________________________________________________ -->
+        <div class="panel panel-default sidebar-menu">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Páginas</h3>
+            </div>
+
+            <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+
+                    <li ng-class="{'active': staticCtrl.aboutUs}">
+                        <a href="/#!/nosotros">Sobre nosotros</a>
+                    </li>
+
+                	<li ng-class="{'active': staticCtrl.steps}">
+                        <a href="/#!/pasos-para-la-compra">Pasos para la compra</a>
+                    </li>
+                     <li ng-class="{'active': staticCtrl.autoPayment}">
+                        <a href="/#!/vehiculos-como-parte-de-pago">Vehículos como parte de pago</a>
+                    </li>
+                    <li ng-class="{'active': staticCtrl.referral}">
+                        <a href="/#!/referidos">Sistema de referidos</a>
+                    </li>
+
+                    <li>
+                        <a href="/#!/faq">Preguntas frecuentas</a>
+                    </li>
+                    <li>
+                        <a href="/#!/condiciones">Condiciones y términos</a>
+                    </li>
+                    <li ng-class="{'active': staticCtrl.contact}">
+                        <a href="/#!/contacto">Contacto</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- *** PAGES MENU END *** -->
+
+
+        <div class="banner">
+            <img src="app/images/fotogrupo.jpg" alt="" class="img-responsive">
+        </div>
+    </div>
+
+    <div class="col-md-9">
+
+        <!-- *** About Us *** -->
+        <div ng-show="staticCtrl.aboutUs">
+            <div class="box animated bounceInLeft">
+
+
+            	<h1>Mokars</h1>
+
+                <p class="lead">Con mas de 25 años de experiencia en la industria!.</p>
+
+
+                <p style="text-align:justify">De la misma familia de Super Autos Las Mercedes en Caracas - Venezuela, en la famosa esquina del "co...". Contamos con una larga trayectoria, experiencia y presencia en el país, en la importación y venta de carros de lujo. ​Ahora estabilizados en USA con más de 7 años en el mercado, formando parte del desarrollo de Super Autos Miami, ramificándonos y especializándonos ahora en ventas al mayor y exportación con la empresa My Mint Car (Mi Carro Impecable). ​Nos caracterizamos por ser expertos en conseguir los mejores precios del mercado y en facilitar el proceso de exportación más rápido, eficiente y seguro que hoy en día es más complejo y delicado que nunca. Contamos con una asociación estratégica con los mejores agentes aduanales para nuestros clientes de Latino América, garantizando así cada entrega en tiempo record con un precio insuperable!.</p>
+
+
+                <div class="banner" style="margin:auto">
+                    <img src="app/images/mercedes.png" alt="" class="img-responsive img-rounded">
+                </div>
+
+                <hr>
+
+                <h2>Nuestras oficinas</h2>
+
+                <blockquote>
+                    <p>Tenemos oficinas en tres paises en donde ofrecemos todos los servicios.</p>
+                </blockquote>
+
+                <div>
+                    <h3>Estados Unicos</h3>
+
+                    <ol>
+                    	<p><strong>Dirección: </strong>5470 NW 161st St. Miami Gardens, ​ FL. 33014 USA.</p>
+                    </ol>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="text-center">
+                                <img src="app/images/usa1.jpg" class="img-rounded img-responsive" alt="">
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-center">
+                                <img src="app/images/usa2.jpg" class="img-rounded img-responsive" alt="">
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Venezuela</h3>
+
+                    <ol>
+                    	<p><strong>Dirección: </strong>Av. Principal del Hatillo C.C Trinidad Tepuy, sector la Granjera  Piso 1 Ofic. 1-13.</p>
+                    </ol>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="text-center">
+                                <img src="app/images/venezuela1.jpg" class="img-rounded img-responsive" alt="">
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-center">
+                                <img src="app/images/venezuela2.jpg" class="img-rounded img-responsive" alt="">
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Ecuador</h3>
+
+                    <ol>
+                    	<p><strong>Dirección: </strong>Juan de Velasco N26-111 y ave. Francisco de Orellana. Quito - Ecuador.</p>
+                    </ol>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="text-center">
+                                <img src="app/images/ecuador1.jpg" class="img-rounded img-responsive" alt="">
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-center">
+                                <img src="app/images/ecuador2.jpg" class="img-rounded img-responsive" alt="">
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- *** End of About Us *** -->
+
+        <!-- *** Steps *** -->
+        <div ng-show="staticCtrl.steps">
+            <div class="box animated bounceInLeft">
+                <h1>Pasos para la compra</h1>
+
+                <div class="banner" style="width:100%">
+                    <img src="app/images/steps.jpg" alt="" class="img-responsive">
+                </div>
+
+                 <p class="lead">Si es una empresa buscando inventario para importar a su país o simplemente quiere importar un vehículo para usted tenemos la solución a su necesidad..</p>
+
+                 <p>Todas nuestras ventas son realizadas bajo un contrato legal, donde se especifica nuestro proceso de pago que consiste de la siguiente manera:</p>
+
+                <ul>
+                    <li>Usted debe realizar un pago de $2,000 para el cierre de la orden de compra. Seguido a esto se procede a la firma de contrato y detalles de facturación del vehículo.</li>
+                    <li>Luego debe cancelar el 70% para procesar el pedido.</li>
+                    <li>Un 20% Cuando el vehículo este en el puerto de Miami embarcado con su Bill Of Lading asignado.</li>
+                    <li>El último 10% se cancela cuando el vehículo ya haya pasado el proceso final de nacionalización según las leyes de cada país.</li>
+                </ul>
+
+                <p>​La entrega del vehículo se realizará una vez cancelado el total de la orden de compra y puede ser realizada en nuestras oficinas (en las ciudades que aplique) o directamente en su casa u oficina. </p>
+
+                <div class="text-center" style="padding-top: 20px; padding-bottom:20px;">
+                    <a href="http://www.exportatucarro.com/uploads/2/5/5/6/25568040/contrato702010-2.pdf" class="btn btn-success btn-lg">Ver Modelo de contrato</a>
+                </div>
+                
+                <hr>
+
+                <h2>Regulaciones por paises</h2>
+
+                <div>
+                    <h3>Venezuela</h3>
+
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <div class="banner">
+                                <img src="app/images/venezuela.png" alt="" class="img-responsive" style="margin:auto">
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-9">
+
+                            <ul style="text-align:justify">
+                                <li>Importación abierta sólo para vehículos del año.</li>
+                                <li>Vehículos usados permitidos solo Pick-up o de carga con no mas de 3 años de uso.</li>
+                                <li>Para su mayor comodidad si usted lo desea trabajamos con la moneda local al cambio del día basado en Dolar Today.</li>
+                                <li>Recibimos vehículos como parte de pago en Venezuela de no más de 5 años de uso, basado en la condición actual del mismo después de ser realizada una inspección por nuestro personal capacitado en el país. En el caso de tener el vehículo ubicado en USA, el mismo puede ser de cualquier año.</li>
+                                <li>Si usted desea adquirir un vehículo usado solo puede ser por régimen de equipaje (en el caso que se devuelva de manera definitiva al país) , o por cupo diplomático.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div>
+                    <h3>Ecuador</h3>
+
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <div class="banner">
+                                <img src="app/images/ecuador.png" alt="" class="img-responsive" style="margin:auto">
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-9">
+
+                            <ul style="text-align:justify">
+                                <li>Importación abierta sólo para vehículos del año.</li>
+                                <li>Cupos para personas con discapacidad.</li>
+                                <li>Cupos diplomáticos.</li>
+                                <li>Régimen de equipaje o menaje (Personas que vivieron en el exterior por más de 1 año).</li>
+                                <li>Recibimos vehículos como parte de pago de de cualquier año que se encuentren ubicados USA, basado en la condición actual del mismo después de ser realizada una inspección por nuestro personal capacitado.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div>
+                    <h3>Colombia</h3>
+
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <div class="banner">
+                                <img src="app/images/colombia.png" alt="" class="img-responsive" style="margin:auto">
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-9">
+
+                            <ul style="text-align:justify">
+                                <li>Solo se permite vehículos nuevos.</li>
+                                <li>Si usted desea adquirir un vehículo usado solo puede ser por régimen de equipaje (en el caso que se devuelva de manera definitiva al país) , o por cupo diplomático.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <!-- *** End of Steps *** -->
+
+        <!-- *** Autopayment *** -->
+        <div ng-show="staticCtrl.autoPayment">
+            <div class="box animated bounceInLeft">
+                <h1>Vehículos como parte de pago</h1>
+
+                <div class="banner" style="width:100%">
+                    <img src="app/images/autoPayment.jpg" alt="" class="img-responsive">
+                </div>
+
+                <div style="text-align:justify">
+
+                    <p>Recibimos vehículos como parte de pago que se encuentren ubicados en USA de cualquier año, basado en la condición actual de los mismos, después de ser realizada una inspección por nuestro personal capacitado en el país, los cuales se encuentran en Miami. El monto en que recibiremos el vehículo se determinará tomando en cuenta la condición, año y precio promedio en el mercado estadounidense.</p>
+
+                    <p>Para nuestros clientes que quieran dar un vehículo por parte de pago que se encuentre en Venezuela, estos no pueden tener más de 5 años de antigüedad. La  inspección será realizada por nuestro personal capacitado en el país, los cuales se encuentran en la ciudad de Caracas. El monto del mismo se determinará tomando en cuenta la condición, año y precio promedio en el mercado venezolano. </p>
+
+                    <p>Para avanzar con la negociación en la recepción de vehículos por parte de pago, usted debe enviarnos un correo electrónico a <a href="mailto:leads@mymintcar.com?Subject=Vehículos como parte de pago">leads@mymintcar.com</a> con los siguientes requisitos:</p>
+
+                    <ul>
+                        <li>Copia del título de propiedad del vehículo y cédula de identidad (el mismo debe de estar a nombre de la persona que realice la negociación).</li>
+                        <li>Fotografías internas, externas y del motor del vehículo para verificar el estado del mismo previamente.</li>
+                        <li>Informe en el que indique si el vehículo tiene, o tuvo algún tipo de daño mecánico o estructural (esto se verificará a través de un reporte de condición realizado posteriormente por nuestros peritos).</li>
+                    </ul>
+
+                    <p>Esta información será tomada por nuestro departamento de mercadeo, el cual la someterá a una evaluación previa para establecer el precio average del vehículo en el mercado venezolano, y así determinar el monto por el cual será recibido el mismo. Posteriormente nuestros representantes de ventas se comunicarán con usted para hacerle saber el monto por el cual se va a recibir el vehículo, de ser aceptada nuestra propuesta, se programará una cita en nuestro agente autorizado para realizar la inspección física del vehículo y cerrar la negociación.</p>
+
+                </div>
+
+            </div>    
+        </div>    
+        <!-- *** End of Autopayment *** -->
+
+        <!-- *** Referral *** -->
+        <div ng-show="staticCtrl.referral">
+            <div class="box animated bounceInLeft">
+                <h1>Gane con nuestro sistema de referidos</h1>
+
+                <div class="banner" style="width:100%">
+                    <img src="app/images/referral.png" alt="" class="img-responsive">
+                </div>
+
+                <div style="text-align:justify">
+                    <p class="lead">HASTA $1,000 EN COMISIÓN POR VEHÍCULO.</p>
+
+                    <p>Qué mejor publicidad que la que usted nos puede ayudar a generar!</p>
+
+                    <p>Ya nos conoce, ya sabe como trabajamos, ayúdenos a conseguir a alguien más interesado en nuestros excelentes productos y servicio, y gane con nosotros por la transacción!.</p>
+
+                    <p>Según el volumen de la primera orden de compra de su referido le recompensaremos con $1,000 por vehículo dependiendo del tipo de pedido que él haya realizado, y a partir de la siguiente orden  del mismo cliente serían $100 por vehículo.</p>
+                </div>
+
+
+            </div>
+        </div>  
+
+        <!-- *** Contact *** -->
+        <div ng-show="staticCtrl.contact">
+            <div class="box animated bounceInLeft">
+                <h1>Contáctenos</h1>
+
+                <div style="text-align:justify">
+                    <p class="lead">Estamos para servirle!.</p>
+
+                    <p>¿Tiene alguna pregunta que no pudimos contestar en nuestra página? O ¿alguna cotización especial que quisiera realizar? </p>
+
+                    <p>Nuestro Departamento de Venta y Exportación está siempre listo para nuestros clientes. Puede enviarnos un correo a <a href="mailto:leads@mymintcar.com?Subject=Pregunta o duda sobre mokars">leads@mymintcar.com</a> </p>
+
+                    <p>Si lo prefiere puede colocar su información y detalles de su solicitud en la siguiente sección y le contestaremos a la brevedad posible:</p>
+
+                    <hr>
+
+
+                    <div ng-hide="staticCtrl.formSent">
+
+                        <form name="contactForm" ng-submit="staticCtrl.sendContactForm()" action="javascript:void(0);">
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xm-12">
+                                    <div class="form-group">
+                                        <label for="name">Nombre</label>
+                                        <input ng-model="staticCtrl.contactForm.firstName" type="text" class="form-control" id="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xm-12">
+                                    <div class="form-group">
+                                        <label for="name">Apellido</label>
+                                        <input ng-model="staticCtrl.contactForm.lastName" type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xm-12">
+                                    <div class="form-group">
+                                        <label for="name">País</label>
+                                        <select ng-model="staticCtrl.contactForm.country" class="form-control center" ng-options="country for country in staticCtrl.countries" title="country" required>
+                                            <option value="" disabled selected>Selecciona tu país</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xm-12">
+                                    <div class="form-group">
+                                        <label for="name">Teléfono</label>
+                                        <input ng-model="staticCtrl.contactForm.phone" type="text" class="form-control" id="phone" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input ng-model="staticCtrl.contactForm.email" type="email" class="form-control" id="email" autocapitalize="none" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensaje</label>
+                                <textarea rows="4" cols="50" ng-model="staticCtrl.contactForm.message" class="form-control" id="message" required></textarea>
+
+                            </div>
+                            <div class="text-center">
+
+                                <button ng-hide="staticCtrl.sendingForm" type="submit" class="btn btn-primary btn-lg"><i class="fa fa-paper-plane"></i> Enviar</button>
+
+                                <i class="fa fa-spinner fa-spin fa-3x colorExporta" ng-show="staticCtrl.sendingForm"></i>
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <div ng-show="staticCtrl.formSent">
+                        <div class="text-center" style="margin-top:60px;">
+
+                            <h4><strong>Muchas Gracias por tu interes, te estaremos contactando a la brevedad posible.</strong></h4>
+
+                            <div style="margin-top:40px;">
+                                <button class="btn btn-success" type="button" ng-click="staticCtrl.formSent = false"><i class="fa fa-arrow-left"></i> Regresar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+            </div>    
+        </div>        
+
+    </div>
+    <!-- /.col-md-9 -->
+</div>
+<!-- /.container -->
