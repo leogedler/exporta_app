@@ -1,16 +1,28 @@
 
-html *
-{
-  /*font-family: Lucida Sans Unicode;*/
-  font-family: 'Source Sans Pro', serif;
-/*  font-family: 'Lato', serif;*/
+/* Imported CSS styles */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('./bootstrap-social.css');
+@import url('./loading-bar.min.css');
+@import url('./animate.min.css');
+@import url('./owl.carousel.css');
+@import url('./owl.theme.css');
+@import url('./style.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Cabin:500');
+
+
+
+html *{
+  /*font-family: 'Lato', serif;*/
+font-family: 'Raleway', sans-serif;
 }
 
 
 body{
 /*	margin-top:-25px;*/
 /*	background-color: #67beeb;*/
-/*    font-family: Comic Sans MS !important;*/
 }
 
 .nopadding {
@@ -68,7 +80,23 @@ body{
 }
 
 
-
+/* Mokars links */
+a.linksMokars:link{
+    color:#b32d00;
+    text-decoration: none;
+}
+a.linksMokars:visited{
+    color:#b32d00;
+    text-decoration: none;
+}
+a.linksMokars:active{
+    color:#802000;
+    text-decoration: none;
+}
+a.linksMokars:hover{
+    color:#802000;
+    text-decoration: none;
+}
 /* White links */
 a.linksWhite:link{
     color:#ffffff;
@@ -88,47 +116,123 @@ a.linksWhite:hover{
 }
 
 
-#background-big {
+
+#landing-main {
 	background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("../images/camaro.jpg") no-repeat center ;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: 100% 100%;
 	-o-background-size: cover;
+    background-attachment: fixed;
 	width:100%;
 	overflow: hidden;
 	resize:horizontal;
-	height: 700px; 
+	height: 90vh; 
 	margin-top:-30px;
 	
 }
-#background-big h1{
+#landing-main h1{
   font-weight: 100 !important;
   font-size: 100px;
 }
-#background-big h3{
+#landing-main h3{
   font-weight: 100 !important;
   font-size: 40px;
 }
+
+
+#landing-2 {
+    color: #ffffff;
+    height: 100vh;
+	width:100%;
+    font-size: 14px;
+}
+#landing-2 img{
+    margin: auto;
+    width: 130px;
+    padding-bottom: 20px;
+}
+#landing-2 .title {
+    color: black;
+    padding-bottom: 60px;
+    font-size: 45px;
+}
+#landing-2 h2 {
+    font-size: 45px;
+    /*font-family: 'Cabin', sans-serif !important;*/
+}
+#landing-2 h3 {
+    padding-bottom: 20px;
+}
+
+#landing-2 .info{
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 400px;
+    padding: 25px;
+    margin: 30px;
+}
+
+#landing-3 {
+    width:100%;
+    height: 500px;
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/harley.jpg") no-repeat center ;
+  	background-position: 50% 50%;
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
+    padding-bottom: 30px;
+    color: #ffffff;
+    border-top: 10px solid #b32d00;
+    border-bottom: 10px solid #b32d00;
+}
+#landing-3 h2 {
+    font-size: 45px;
+    padding-bottom: 20px;
+}
+
+
 @media (min-width: 1200px) {
-	#background-big {
+	#landing-main {
 		height:87vh;
 		padding-top:90px;
-    padding-left: 60px; 
+        padding-left: 60px; 
 	}
+    #landing-2{
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
+    #landing-3{
+        padding-top: 10%;
+    }
 
 }
 @media (min-width: 650px) and (max-width: 1199px) {
-	#background-big {
+	#landing-main {
 		height:87vh;
 		padding-top:90px;
     padding-left: 60px;  
 	}
+    #landing-2{
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
+    #landing-3{
+        padding-top: 10%;
+    }
 }
 @media (min-width: 100px) and (max-width: 649px) {
-	#background-big {
+	#landing-main {
 		padding-top:180px; 
     text-align: center;
 	}
+    #landing-2{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    #landing-3{
+        padding-top: 25%;
+    }
 }
 
 #details ul{

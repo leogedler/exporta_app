@@ -34,17 +34,7 @@
 <!--         <meta name="google-site-verification" content="UFrYErGd504atQar8aY2LYRcEkgAlTEUxb6rkbyzA8Y" /> -->
 
         <!-- CSS -->
-<!--         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="app/css/bootstrap.min.css"/> 
-        <link rel="stylesheet" href="app/css/bootstrap-social.css"/> 
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-        <link rel='stylesheet' href='app/css/loading-bar.min.css' type='text/css' media='all' />
-        <link rel="stylesheet" href="app/css/animate.min.css">
-        <link rel="stylesheet" href="app/css/owl.carousel.css" >
-        <link rel="stylesheet" href="app/css/owl.theme.css" >
-        <link rel="stylesheet" href="app/css/style.css"  id="theme-stylesheet">
         <link rel="stylesheet" href="app/css/mystyle.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
         <!-- End of CSS --> 
 
         <!-- Parse, Jquery JavaScrip -->
@@ -83,7 +73,7 @@
         <script src="app/js/bootstrap-hover-dropdown.js"></script>
         <script src="app/js/owl.carousel.min.js"></script>
         <script src="app/js/respond.min.js"></script>
-<!--         // <script src="js/jquery.bgswitcher.js"></script> -->
+        <script src="app/js/jquery.bgswitcher.js"></script> 
         <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.angular.min.js"></script>
         <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.angular.min.js"></script>
         <script src="https://cdn.jsdelivr.net/hogan.js/3.0/hogan.min.js"></script>
@@ -438,14 +428,25 @@
 
                             <hr>
 
-                            <h4>Ingreso/Registro</h4>
+                            <div ng-show="!mainCtrl.isUser()">
+                                <h4>Ingreso/Registro</h4>
 
-                            <ul>
-                                <li><a href data-toggle="modal" data-target="#login-modal">Ingresa</a>
-                                </li>
-                                <li><a href="/registro">Regístrate</a>
-                                </li>
-                            </ul>
+                                <ul>
+                                    <li><a href data-toggle="modal" data-target="#login-modal">Ingresa</a>
+                                    </li>
+                                    <li><a href="/registro">Regístrate</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div ng-show="mainCtrl.isUser()">
+                                <h4>Salir/Deslogearse</h4>
+
+                                <ul>
+                                    <li><a href ng-click="mainCtrl.logOut()">Cerrar sesión</a>
+                                    </li>
+                                </ul>
+                            </div>
 
                             <hr class="hidden-md hidden-lg hidden-sm">
 

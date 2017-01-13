@@ -107,7 +107,7 @@ p.lead {
 }
 .navbar ul.nav > li > a {
 /*  text-transform: uppercase;*/
-  font-weight: bold;
+  font-weight: normal;
 }
 .navbar #search {
   clear: both;
@@ -931,7 +931,7 @@ p.lead {
   font-size: 12px;
 }
 #content #blog-post .comment .reply {
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  /*font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;*/
 }
 #content #blog-post .comment.last {
   margin-bottom: 0;
@@ -1184,7 +1184,7 @@ p.lead {
 
 .navbar-default {
     border-color: transparent;
-    background-color: #595959;
+    background-color: #595959; 
 }
 
 .navbar-default .nav li a {
@@ -1302,7 +1302,6 @@ p.lead {
 
 /* scaffolding */
 body {
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -1370,7 +1369,6 @@ hr {
 /* buttons  */
 .btn {
   font-weight: normal;
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -1457,7 +1455,6 @@ label {
   border-top: solid 1px #eeeeee;
   padding-top: 20px;
   text-transform: uppercase;
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 .pager li {
   display: inline;
@@ -1485,7 +1482,6 @@ label {
 /* pagination */
 .pagination {
   margin: 20px 0;
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   border-radius: 0;
 }
 .pagination > li > a,
