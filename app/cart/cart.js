@@ -270,6 +270,9 @@ angular.module('mokars.cart', ['ngRoute', 'service.module'])
 			cartCtrl.order.paid = false;
 			cartCtrl.order.remainingToPay = cartCtrl.totalOrder;
 			cartCtrl.order.totalPaid = 0;
+
+			// Send email to client who rgistered an auto or bike order
+			cartCtrl.sendOrderRegisteredEmail();
 	
 		}else{
 			cartCtrl.order.category = 'tires';
@@ -328,9 +331,6 @@ angular.module('mokars.cart', ['ngRoute', 'service.module'])
 		};
 
 
-
-
-
 		// Placing order
 		$http({
     		method : 'POST', 
@@ -376,10 +376,6 @@ angular.module('mokars.cart', ['ngRoute', 'service.module'])
 				$location.url('perfil/ordenes');
 
 			});
-
-
-
-
 
 
 
@@ -454,7 +450,7 @@ angular.module('mokars.cart', ['ngRoute', 'service.module'])
 		    
 		        client: {
 		            sandbox:    'AUD09lTvCZiZjs45gTk5ZCkB2d3GiKBXaEzL9583JuBBkE6G0jD2Dn9RgQBlO1MHq8NRtcbmX6_H0a_C',
-		            production: 'jhosehp.rendon@sohamfit.com'
+		            production: 'AQqiKrNO8ezRiFKSiy71XJEz6VEJNPsMs7edfBzsZOjQlbrYum3lsREbWswfMdbEsNk4WaoL3DyaoOWa'
 		        },
 
 		        payment: function() {
@@ -474,17 +470,17 @@ angular.module('mokars.cart', ['ngRoute', 'service.module'])
 		        commit: true, // Optional: show a 'Pay Now' button in the checkout flow
 
 		        onAuthorize: function(data, actions) {
-		        
-		            // Optional: display a confirmation page here
-		        
+		        		        
 		            return actions.payment.execute().then(function() {
 		                
-		                // Show a success page to the buyer
+						console.log('Paypal data', data);
 
 		                // Place the order
 		                cartCtrl.placeAnOrder();
 
-		                console.log('Payment done');
+						// Send email to client
+						cartCtrl.sendTiresBuyedEmail(data.paymentID);
+
 		            });
 		        },
 
@@ -495,7 +491,51 @@ angular.module('mokars.cart', ['ngRoute', 'service.module'])
 
 		    }, '#paypal-button');
 		};
-	}
+	};
+
+	this.sendOrderRegisteredEmail = function(){
+
+		// Client data
+		var clientData = {}
+		clientData.clientEmail = cartCtrl.user.email;
+		clientData.clientName = Capitalize(cartCtrl.user.firstName + cartCtrl.user.lastName);
+
+		// Send invitation email to friend
+		$http({
+			method : 'POST', 
+			headers: mPostPutHeaderJson,
+			data: clientData,
+			url : apiUrl+'/functions/sendOrderRegisteredEmail'
+
+			}).success(function(data){
+
+				console.log(data);
+
+			});
+	};
+
+	this.sendTiresBuyedEmail = function(paymentID){
+
+		// Client data
+		var clientData = {}
+		clientData.clientEmail = cartCtrl.user.email;
+		clientData.clientName = Capitalize(cartCtrl.user.firstName + cartCtrl.user.lastName);
+		clientData.totalPrice = cartCtrl.totalOrder;
+		clientData.confirmationCode = paymentID;
+
+		// Send invitation email to friend
+		$http({
+			method : 'POST', 
+			headers: mPostPutHeaderJson,
+			data: clientData,
+			url : apiUrl+'/functions/sendTiresBuyedEmail'
+
+			}).success(function(data){
+
+				console.log(data);
+
+			});
+	};
 
 
 	this.flashMessage = function (m) {
