@@ -42,6 +42,14 @@ angular.module('mokars.static', ['ngRoute', 'service.module'])
   })
 }])
 
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/beneficios', {
+    templateUrl: 'app/static/static.html',
+    controller: 'StaticCtrl',
+    controllerAs : 'staticCtrl'
+  })
+}])
+
 
 .controller('StaticCtrl', ['$http', '$rootScope', '$routeParams', '$scope','$location', '$route', 'CurrentData', function($http, $rootScope, $routeParams, $scope, $location, $route, CurrentData) {
 	var staticCtrl = this;
@@ -51,7 +59,7 @@ angular.module('mokars.static', ['ngRoute', 'service.module'])
 	staticCtrl.referral = false;
 	staticCtrl.contact = false;
 	staticCtrl.faq = false;
-	staticCtrl.conditions = false;
+	staticCtrl.terms = false;
 
 	staticCtrl.contactForm = {};
 	staticCtrl.countries = mCountries;
@@ -91,14 +99,16 @@ angular.module('mokars.static', ['ngRoute', 'service.module'])
 
 	}else if ($location.path() == '/preguntas'){
 		staticCtrl.faq = true;
-	}else if ($location.path() == '/condiciones'){
-		staticCtrl.conditions = true;
+		staticCtrl.title = "Preguntas frecuentes";
+	}else if ($location.path() == '/beneficios'){
+		staticCtrl.terms = true;
+		staticCtrl.title = "Beneficios y Términos";
 	}
 
 
 	// Meta tags
 	$rootScope.robot = mStaticRobot;
-	$rootScope.pageTitle = staticCtrl.title ;
+	$rootScope.pageTitle = staticCtrl.title;
 	$rootScope.pageDescription = mMainPageDescription;
 	$rootScope.ogPageDescription = mMainOgPageDescription;
 	$rootScope.ogPageImage = mMainOgPageImage;

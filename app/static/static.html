@@ -34,11 +34,11 @@ _________________________________________________________ -->
                         <a href="/#!/referidos">Sistema de referidos</a>
                     </li>
 
-                    <li>
+                    <!--<li>
                         <a href="/#!/faq">Preguntas frecuentas</a>
-                    </li>
+                    </li>-->
                     <li>
-                        <a href="/#!/condiciones">Condiciones y términos</a>
+                        <a href="/#!/beneficios">Beneficios y términos</a>
                     </li>
                     <li ng-class="{'active': staticCtrl.contact}">
                         <a href="/#!/contacto">Contacto</a>
@@ -177,7 +177,7 @@ _________________________________________________________ -->
                 <p>​La entrega del vehículo se realizará una vez cancelado el total de la orden de compra y puede ser realizada en nuestras oficinas (en las ciudades que aplique) o directamente en su casa u oficina. </p>
 
                 <div class="text-center" style="padding-top: 20px; padding-bottom:20px;">
-                    <a href="http://www.exportatucarro.com/uploads/2/5/5/6/25568040/contrato702010-2.pdf" class="btn btn-success btn-lg">Ver Modelo de contrato</a>
+                    <a class="btn btn-primary"target="_blank" href="https://s3-us-west-2.amazonaws.com/exportatucarro/documents/contrato.pdf">Ver Modelo de contrato</a>
                 </div>
                 
                 <hr>
@@ -320,6 +320,77 @@ _________________________________________________________ -->
 
             </div>
         </div>  
+
+
+        <!-- *** Benifits and terms *** -->
+        <div ng-show="staticCtrl.terms">
+            <div class="box animated bounceInLeft">
+                <h1>¿Por qué comprar con nosotros?</h1>
+
+
+                <h3>Legalidad</h3>
+                <p>Sientase seguro, ya que todas nuestras ventas son realizadas bajo un contrato legal notariado en USA, donde usted tiene respaldado y garantizado su vehículo y/o inversión.</p>
+
+                <div class="text-center">
+                    
+                    <div class="text-center" style="padding-top: 20px; padding-bottom:20px;">
+                        <a class="btn btn-primary"target="_blank" href="https://s3-us-west-2.amazonaws.com/exportatucarro/documents/contrato.pdf">Ver Modelo de contrato</a>
+                    </div>
+                    <img class="img-responsive" src="app/images/terms.png">
+                </div>
+
+
+                <h3>Ahorre Dinero</h3>
+
+                <p>Ahorre con nosotros! Como empresa exportadora trabajamos directamente con el departamento de flota de las principales marcas de  USA. Le garantizamos el mejor precio del mercado, para cualquier vehículo importado en su país. </p>
+
+                <div class="text-center">
+                    <img class="img-responsive" src="app/images/best_price.png">
+                </div>
+
+
+                <h3>Ahorre Tiempo</h3>
+
+                <p>No pierda tiempo en ver cómo ubica el vehículo que necesita comprar para exportar, más todo el proceso necesario de documentación y traslado. Nosotros nos encargamos absolutamente de todo, para entregarle su vehículo en nuestras oficinas o en la puerta de su casa ya nacionalizado.</p>
+
+                <div class="text-center">
+                    <img class="img-responsive" src="app/images/save_time.png">
+                </div>
+
+
+
+                <h3>Ventajas por paises</h3>
+                <p>A nuestros clientes en Venezuela, aceptamos bolívares o vehículos como parte de pago. Los vehículos no deben tener más de 5 años de antiguedad basado en la condición actual del mismo.</p>
+                <p>Nuestros clientes de Ecuador pueden utilizar su porcentaje de descuento de discapacidad con nosotros y tener un gran margen de ahorro en la adquisición de su vehículo.</p>
+
+                <div class="text-center">
+                    <img class="img-responsive" src="app/images/bolivares.png">
+                </div>
+
+                <h3>¿Quieres un flota?</h3>
+                <p>Interesado en hacer un pedido de flota? Manejamos cualquier tamaño de orden, desde 1 vehículo hasta 30 de ellos. Nuestros descuentos de flota comienzan en órdenes mayores de 5 a 10 vehículos en un mismo pedido.</p>
+                
+                <div class="text-center">
+                    <img class="img-responsive" src="app/images/fleet.png">
+                </div>
+
+
+                <h3>¿Necesitas un repuesto?</h3>
+                
+                <p>No ubica las piezas y repuestos necesarios para el mantenimiento o reparación de su vehículo? No se preocupe, tiene nuestro respaldo en surtirlo con cualquier pieza, accesorio o repuesto necesario para poder mantener su vehículo en óptimas condiciones. Si está interesado en poder personalizarlo para tunning o Off Road trabajamos con las empresas más calificadas en el Sur de Florida para tales trabajos y así poder recibir su vehículo directamente de USA con el look y accesorios que más les gusta!</p>
+
+                <div class="text-center">
+                    <img class="img-responsive" src="app/images/parts.png">
+                </div>
+
+
+                <p>Negocie con confianza, puede conseguirnos en cualquier parte de internet con sólo buenas referencias de quienes han comprado con nosotros. Con años de experiencia en la industria conocemos todos nuestros procesos de la A a la Z para asegurar la conformidad de nuestro cliente. Nuestro mayor interés es su satisfacción para hacer una relación de negocios a largo plazo y así garantizar su tranquilidad sin usted tener que mover un dedo mientras nosotros nos encargamos de todo en la logística de su vehículos a exportar!</p>
+            
+            </div>
+
+
+
+        </div>    
 
         <!-- *** Contact *** -->
         <div ng-show="staticCtrl.contact">
