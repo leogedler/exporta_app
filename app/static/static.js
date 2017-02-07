@@ -50,6 +50,14 @@ angular.module('mokars.static', ['ngRoute', 'service.module'])
   })
 }])
 
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/terminos', {
+    templateUrl: 'app/static/static.html',
+    controller: 'StaticCtrl',
+    controllerAs : 'staticCtrl'
+  })
+}])
+
 
 .controller('StaticCtrl', ['$http', '$rootScope', '$routeParams', '$scope','$location', '$route', 'CurrentData', function($http, $rootScope, $routeParams, $scope, $location, $route, CurrentData) {
 	var staticCtrl = this;
@@ -59,7 +67,7 @@ angular.module('mokars.static', ['ngRoute', 'service.module'])
 	staticCtrl.referral = false;
 	staticCtrl.contact = false;
 	staticCtrl.faq = false;
-	staticCtrl.terms = false;
+	staticCtrl.benefits = false;
 
 	staticCtrl.contactForm = {};
 	staticCtrl.countries = mCountries;
@@ -101,8 +109,11 @@ angular.module('mokars.static', ['ngRoute', 'service.module'])
 		staticCtrl.faq = true;
 		staticCtrl.title = "Preguntas frecuentes";
 	}else if ($location.path() == '/beneficios'){
+		staticCtrl.benefits = true;
+		staticCtrl.title = "Beneficios";
+	}else if ($location.path() == '/terminos'){
 		staticCtrl.terms = true;
-		staticCtrl.title = "Beneficios y Términos";
+		staticCtrl.title = "Términos y Condiciones";
 	}
 
 

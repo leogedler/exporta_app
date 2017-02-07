@@ -19,11 +19,12 @@ _________________________________________________________ -->
 
             <div class="panel-body">
                 <ul class="nav nav-pills nav-stacked">
-
+                    <li ng-class="{'active': staticCtrl.benefits}">
+                        <a href="/#!/beneficios">Beneficios</a>
+                    </li>
                     <li ng-class="{'active': staticCtrl.aboutUs}">
                         <a href="/#!/nosotros">Sobre nosotros</a>
                     </li>
-
                 	<li ng-class="{'active': staticCtrl.steps}">
                         <a href="/#!/pasos-para-la-compra">Pasos para la compra</a>
                     </li>
@@ -33,12 +34,8 @@ _________________________________________________________ -->
                     <li ng-class="{'active': staticCtrl.referral}">
                         <a href="/#!/referidos">Sistema de referidos</a>
                     </li>
-
-                    <!--<li>
-                        <a href="/#!/faq">Preguntas frecuentas</a>
-                    </li>-->
-                    <li>
-                        <a href="/#!/beneficios">Beneficios y términos</a>
+                    <li ng-class="{'active': staticCtrl.terms}">
+                        <a href="/#!/terminos">Términos y condiciones</a>
                     </li>
                     <li ng-class="{'active': staticCtrl.contact}">
                         <a href="/#!/contacto">Contacto</a>
@@ -322,8 +319,8 @@ _________________________________________________________ -->
         </div>  
 
 
-        <!-- *** Benifits and terms *** -->
-        <div ng-show="staticCtrl.terms">
+        <!-- *** Benefits *** -->
+        <div ng-show="staticCtrl.benefits">
             <div class="box animated bounceInLeft">
                 <h1>¿Por qué comprar con nosotros?</h1>
 
@@ -387,10 +384,88 @@ _________________________________________________________ -->
                 <p>Negocie con confianza, puede conseguirnos en cualquier parte de internet con sólo buenas referencias de quienes han comprado con nosotros. Con años de experiencia en la industria conocemos todos nuestros procesos de la A a la Z para asegurar la conformidad de nuestro cliente. Nuestro mayor interés es su satisfacción para hacer una relación de negocios a largo plazo y así garantizar su tranquilidad sin usted tener que mover un dedo mientras nosotros nos encargamos de todo en la logística de su vehículos a exportar!</p>
             
             </div>
+        </div>  
 
 
+        <!-- *** Terms *** -->
+        <div ng-show="staticCtrl.terms">
+            <div class="box animated bounceInLeft">  
+                <div class="terms">
+                    <h1>Términos y condiciones</h1>
+                    <h3>Condiciones generales: </h3>
 
-        </div>    
+                    <p>Los términos y condiciones aquí expresados manifiestan las políticas sujetas al proceso de compra, venta, recepción y entrega del o los vehículos que adquiera el cliente con nuestra empresa, dichos parámetros están amparados por un contrato legal.</p>
+
+                    <h4><strong>1</strong> Pedido del Vehiculo: </h4>
+
+                    <ul>
+                        <li>El cliente elige su vehículo en www.exportatucarro.com y procede a realizar una reserva de $2,000.</li>
+                        <li>Esta puede ser realizada directamente en nuestra página por PayPal o por via telefónica con su tarjeta de débito o crédito en dólares.</li>
+                        <li>El depósito de $2,000 formaliza la orden de compra para iniciar todo el proceso de pedido de nuestra empresa para su vehículo con el fabricante.</li>
+                        <li>Dicho depósito será abonado al total de la compra del vehículo.</li>
+                        <li>Una vez recibido el depósito el departamento de administración solicitará la documentación necesaria del comprador para la compra.</li>
+                        <li>La empresa enviará al cliente el contrato detallado con las características del vehículo solicitado para su respectiva firma y poder pasar al proceso de pago del vehículo.</li>
+                    </ul>
+
+                    <h4><strong>2</strong> Proceso de pago: </h4>
+
+                    <ul>
+                        <li>Una vez firmado el contrato por ambas partes, el cliente debe depositar o Transferir el porcentaje correspondiente a la orden.</li>
+                        <li>Opción de pago 1:
+                            <ul>
+                                <li>Debe realizar un primer pago del 70% para iniciar la orden con el fabricante.</li>
+                                <li>Un segundo pago del 20% cuando el vehículo se esté embarcando en el puerto de Miami. </li>
+                                <li>Un tercer pago del 10% cuando este esté listo para la entrega. </li>
+                            </ul>
+                        </li>
+                        <li>Opción de pago 2 (Pronto Pago):
+                            <ul>
+                                <li>Debe realizar el pago por el total del 100% del precio de venta del vehículo.</li>
+                                <li>Con dicha opción el cliente recibe un descuento adicional de $1,000 sobre el precio total de venta.</li>
+                            </ul>
+                        </li>
+                        <li>Todas estas transacciones y Transferencias estarán avaladas por las respectivas facturas que emite el departamento de administración de exportatucarro.</li>
+                    </ul>
+
+                    <h4><strong>3</strong> Proceso de entrega: </h4>
+                    <ul>    
+                        <li>El cliente recibe un reporte semanal del trayecto o estado de su compra hasta el momento de entrega.</li>
+                        <li>La empresa se compromete a entregar el vehículo en la puerta de la casa u oficina del cliente  en un  tiempo estimado de 60 días hábiles, contados desde la verificación del primer pago sea del 70% o del 100% del valor del vehículo.</li>
+                        <li>El cliente recibe su vehiculo, una ves se haya corroborado el pago del 100% del mismo, éste será entregado nacionalizado, con todos los aranceles e impuestos al día, correspondientes al proceso de importación de vehículo y regulaciones aduanales de cada país.</li>
+                    </ul>
+
+                    <h4><strong>4</strong> Sanciones: </h4>
+
+                    <ul>
+                        <li>Si el carro llega al puerto de origen y el cliente no ha finiquitado el pago del 100% del vehículo al cabo de 15 días de, debe asumir los costos de almacenaje que esto acarrea, por la permanencia del vehiculo en el puerto. </li>
+                        <li>Si el cliente no recibe su vehículo al cabo de 15 días del tiempo estimado de entrega, la empresa pagara al cliente el valor del 2% del vehículo como indemnización por los retrasos acarreados. </li>
+                        <li>El cliente no podrá abandonar la negociación una vez concretada el depósito de cierre de $2,000. Todo pago realizado a la empresa es sin derecho de reembolso, sólo podrá ser consumido con cualquiera de nuestros productos de venta de vehículos.</li>
+                        <li>Si por alguna razón la empresa no puede entregar el vehículo por causas mayores, le darán la opción al cliente de escoger otro vehÍculo o exigir la devolución de su dinero.</li>    
+                    </ul>
+
+                    <h4><strong>5</strong> Regulaciones de importación para algunos Países de Latinoamérica:  </h4>
+                    <ul>
+                        <li>Venezuela: 
+                            <ul>
+                                <li>Importación abierta sólo para vehículos nuevos y del año a nombre de persona natural.</li>
+                                <li>Vehículos usados permitidos solo Pick-up o de carga con no mas de 3 años de uso.</li>
+                                <li>Para su mayor comodidad si usted lo desea trabajamos con la moneda local al cambio del día basado en Dolar Today.</li>
+                                <li>Recibimos vehículos como parte de pago de de cualquier año que se encuentren ubicados USA, basado en la condición actual del mismo después de ser realizada una inspección por nuestro personal capacitado.</li>
+                            </ul>
+                        </li>
+                        <li> Ecuador: 
+                            <ul>
+                                <li>Importación abierta sólo para vehículos nuevos y del año.</li>
+                                <li>Cupos para personas con discapacidad hasta 3 año incluyendo el vigente.</li>
+                                <li>Cupos diplomáticos.</li>
+                                <li>Régimen de equipaje o menaje (Personas que vivieron en el exterior por más de 1 año).</li>
+                                <li>Recibimos vehículos como parte de pago de de cualquier año que se encuentren ubicados USA, basado en la condición actual del mismo después de ser realizada una inspección por nuestro personal capacitado.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <!-- *** Contact *** -->
         <div ng-show="staticCtrl.contact">

@@ -449,7 +449,8 @@ angular.module('mokars.cart', ['ngRoute', 'service.module'])
 		        env: 'sandbox', // Optional: specify 'sandbox' environment
 		    
 		        client: {
-		            sandbox:    'AUD09lTvCZiZjs45gTk5ZCkB2d3GiKBXaEzL9583JuBBkE6G0jD2Dn9RgQBlO1MHq8NRtcbmX6_H0a_C',
+					sandbox: 'AXbubGBcL4KilJA1Gc1nTULxoufziCqc-PgKReJb8tslzt0eXwi6K1cm5C54qrPPhWe1UnMb-9ZUnb9Z',
+		            // sandbox:    'AUD09lTvCZiZjs45gTk5ZCkB2d3GiKBXaEzL9583JuBBkE6G0jD2Dn9RgQBlO1MHq8NRtcbmX6_H0a_C',
 		            production: 'AQqiKrNO8ezRiFKSiy71XJEz6VEJNPsMs7edfBzsZOjQlbrYum3lsREbWswfMdbEsNk4WaoL3DyaoOWa'
 		        },
 
