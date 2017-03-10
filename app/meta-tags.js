@@ -1,13 +1,13 @@
 
 // Index (Home)
 var mMainRobot = 'index, follow';
-var mMainTitle = 'Mokars';
+var mMainTitle = 'Exporta tu carro';
 var mMainPageDescription = 'Venta y distribución de vehículos importados a Latino América.';
 var mMainOgPageDescription = 'Venta y distribución de vehículos importados a Latino América.';
-var mMainOgPageImage = 'http://www.mokars.com/app/images/facebook/fbcard.png';
-var mMainOgPageTitle = 'Mokars'; 
+var mMainOgPageImage = 'http://www.exportatucarro.com/app/images/facebook/fbcard.png';
+var mMainOgPageTitle = 'Exporta tu carro'; 
 var mMainTwitterDescription = 'Venta y distribución de vehículos importados a Latino América.';
-var mMainTwitterImage = 'http://www.Mokars.com/app/images/twitter/twittercard.png';
+var mMainTwitterImage = 'http://www.exportatucarro.com/app/images/twitter/twittercard.png';
 
 
 
@@ -27,6 +27,10 @@ var mCartTitle = 'Carrito';
 var mSearchRobot = 'noindex, nofollow';
 var mSearchTitle = 'Busqueda';
 
+// Offers
+var mOffersRobot = 'noindex, nofollow';
+var mOffersTitle = 'Ofertas exporta tu carro';
+
 // Static
 var mStaticRobot = 'index, follow';
 var mStaticTitle = 'Sobre nosotros';
@@ -38,60 +42,60 @@ var mAutosRobot = 'index, follow';
 var mAutosTitle = 'Automóviles';
 var mAutosPageDescription = 'Automóviles';
 var mAutosOgPageDescription = 'Automióviles';
-var mAutosOgPageImage = 'http://www.mokars.com/app/images/facebook/fbcard.png';
+var mAutosOgPageImage = 'http://www.exportatucarro.com/app/images/facebook/fbcard.png';
 var mAutosOgPageTitle = 'Automovíles'; 
 var mAutosTwitterDescription = 'Automóviles';
-var mAutosTwitterImage = 'http://www.mokars.com/Images/twittercard.png';
+var mAutosTwitterImage = 'http://www.exportatucarro.com/Images/twittercard.png';
 
 // Bikes
 var mBikesRobot = 'index, follow';
 var mBikesTitle = 'Motos';
 var mBikesPageDescription = 'Motos';
 var mBikesOgPageDescription = 'Motos';
-var mBikesOgPageImage = 'http://www.mokars.com/app/images/facebook/fbcard.png';
+var mBikesOgPageImage = 'http://www.exportatucarro.com/app/images/facebook/fbcard.png';
 var mBikesOgPageTitle = 'Motos'; 
 var mBikesTwitterDescription = 'Motos';
-var mBikesTwitterImage = 'http://www.mokars.com/Images/twittercard.png';
+var mBikesTwitterImage = 'http://www.exportatucarro.com/Images/twittercard.png';
 
 // Tires
 var mTiresRobot = 'index, follow';
 var mTiresTitle = 'Cauchos';
 var mTiresPageDescription = 'Cauchos';
 var mTiresOgPageDescription = 'Cauchos';
-var mTiresOgPageImage = 'http://www.mokars.com/app/images/facebook/fbcard.png';
+var mTiresOgPageImage = 'http://www.exportatucarro.com/app/images/facebook/fbcard.png';
 var mTiresOgPageTitle = 'Cauchos'; 
 var mTiresTwitterDescription = 'Cauchos';
-var mTiresTwitterImage = 'http://www.mokars.com/Images/twittercard.png';
+var mTiresTwitterImage = 'http://www.exportatucarro.com/Images/twittercard.png';
 
 // Auto detail
 var mAutoDetRobot = 'index, follow';
 var mAutoDetTitle = 'Automóvil';
 var mAutoDetPageDescription = 'Automóvil';
 var mAutoDetOgPageDescription = 'Automóvil';
-var mAutoDetOgPageImage = 'http://www.mokars.com/app/images/facebook/fbcard.png';
+var mAutoDetOgPageImage = 'http://www.exportatucarro.com/app/images/facebook/fbcard.png';
 var mAutoDetOgPageTitle = 'Automóvil'; 
 var mAutoDetTwitterDescription = 'Automóvil';
-var mAutoDetTwitterImage = 'http://www.mokars.com/Images/twittercard.png';
+var mAutoDetTwitterImage = 'http://www.exportatucarro.com/Images/twittercard.png';
 
 // Bike detail
 var mBikeDetRobot = 'index, follow';
 var mBikeDetTitle = 'Moto';
 var mBikeDetPageDescription = 'Moto';
 var mBikeDetOgPageDescription = 'Automóvil';
-var mBikeDetOgPageImage = 'http://www.mokars.com/app/images/twitter/twittercard.png';
+var mBikeDetOgPageImage = 'http://www.exportatucarro.com/app/images/twitter/twittercard.png';
 var mBikeDetOgPageTitle = 'Moto'; 
 var mBikeDetTwitterDescription = 'Moto';
-var mBikeDetTwitterImage = 'http://www.mokars.com/Images/twittercard.png';
+var mBikeDetTwitterImage = 'http://www.exportatucarro.com/Images/twittercard.png';
 
 // Bike detail
 var mTireDetRobot = 'index, follow';
 var mTireDetTitle = 'Caucho';
 var mTireDetPageDescription = 'Caucho';
 var mTireDetOgPageDescription = 'Caucho';
-var mTireDetOgPageImage = 'http://www.mokars.com/app/images/twitter/twittercard.png';
+var mTireDetOgPageImage = 'http://www.exportatucarro.com/app/images/twitter/twittercard.png';
 var mTireDetOgPageTitle = 'Caucho'; 
 var mTireDetTwitterDescription = 'caucho';
-var mTireDetTwitterImage = 'http://www.mokars.com/Images/twittercard.png';
+var mTireDetTwitterImage = 'http://www.exportatucarro.com/Images/twittercard.png';
 
 
 

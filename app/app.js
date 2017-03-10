@@ -1,19 +1,20 @@
 
 (function(){
 
-	angular.module('mokars', ['ngRoute', 'ui.bootstrap','ngSanitize' ,'angular-loading-bar', 'service.module', 'ngFlash',
+	angular.module('exporta', ['ngRoute', 'ui.bootstrap','ngSanitize' ,'angular-loading-bar', 'service.module', 'ngFlash',
 	 'algoliasearch', 'algolia.autocomplete', 
-			'mokars.autos',
-			'mokars.bikes',
-			'mokars.tires',    
-			'mokars.autoDetail', 
-			'mokars.bikeDetail',
-			'mokars.tireDetail',  
-			'mokars.register',
-			'mokars.profile',
-			'mokars.cart',
-			'mokars.search',
-			'mokars.static'
+			'exporta.autos',
+			'exporta.bikes',
+			'exporta.tires',    
+			'exporta.autoDetail', 
+			'exporta.bikeDetail',
+			'exporta.tireDetail',  
+			'exporta.register',
+			'exporta.profile',
+			'exporta.cart',
+			'exporta.search',
+			'exporta.static',
+			'exporta.offers'
 		])
 
 
@@ -21,7 +22,7 @@
 	.config(function($routeProvider, $locationProvider) {
 
 		// Use the HTML5 History API
-	    $locationProvider.html5Mode(true);
+	    // $locationProvider.html5Mode(true);
 		$locationProvider.hashPrefix('!');
 		
 		$routeProvider

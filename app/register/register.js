@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mokars.register', ['ngRoute', 'service.module'])
+angular.module('exporta.register', ['ngRoute', 'service.module'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/registro', {

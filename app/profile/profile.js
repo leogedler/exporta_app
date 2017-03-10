@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mokars.profile', ['ngRoute', 'service.module'])
+angular.module('exporta.profile', ['ngRoute', 'service.module'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/perfil', {

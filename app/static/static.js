@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mokars.static', ['ngRoute', 'service.module'])
+angular.module('exporta.static', ['ngRoute', 'service.module'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/nosotros', {
@@ -18,13 +18,13 @@ angular.module('mokars.static', ['ngRoute', 'service.module'])
   })
 }])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/vehiculos-como-parte-de-pago', {
-    templateUrl: 'app/static/static.html',
-    controller: 'StaticCtrl',
-    controllerAs : 'staticCtrl'
-  })
-}])
+// .config(['$routeProvider', function($routeProvider) {
+//   $routeProvider.when('/vehiculos-como-parte-de-pago', {
+//     templateUrl: 'app/static/static.html',
+//     controller: 'StaticCtrl',
+//     controllerAs : 'staticCtrl'
+//   })
+// }])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/referidos', {
@@ -82,9 +82,9 @@ angular.module('mokars.static', ['ngRoute', 'service.module'])
 	}else if($location.path() == '/pasos-para-la-compra'){
 		staticCtrl.steps = true;
 		staticCtrl.title = "Pasos para la compra";
-	}else if ($location.path() == '/vehiculos-como-parte-de-pago'){
-		staticCtrl.autoPayment = true;
-		staticCtrl.title = "Vehículos como parte de pago";
+	// }else if ($location.path() == '/vehiculos-como-parte-de-pago'){
+	// 	staticCtrl.autoPayment = true;
+	// 	staticCtrl.title = "Vehículos como parte de pago";
 	}else if ($location.path() == '/referidos'){
 		staticCtrl.referral = true;
 		staticCtrl.title = "Sistema de referidos";

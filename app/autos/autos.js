@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mokars.autos', ['ngRoute', 'service.module'])
+angular.module('exporta.autos', ['ngRoute', 'service.module'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/automoviles', {

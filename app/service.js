@@ -51,7 +51,6 @@ angular.module('service.module', [])
 		},
 
 		getSearch: function(words, category){
-
 			return $http(
 				{
 				method: 'POST',
@@ -62,7 +61,17 @@ angular.module('service.module', [])
 				},
 				url: apiUrl+'/functions/search'
 				});
-
+		},
+		getOffers: function(category){
+			return $http(
+				{
+				method: 'POST',
+				headers: mPostPutHeaderJson,
+				data: {
+					'offersFor': category
+				},
+				url: apiUrl+'/functions/offers'
+				});
 		},
 
 		getAutos: function(make, ty, con){

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mokars.tireDetail', ['ngRoute', 'service.module'])
+angular.module('exporta.tireDetail', ['ngRoute', 'service.module'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/caucho/:ref/:name', {

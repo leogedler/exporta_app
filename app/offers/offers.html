@@ -1,0 +1,202 @@
+
+<div class="container">
+
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>Ofertas</li>
+        </ul>
+    </div>
+
+
+
+    <div class="animated bounceInUp">
+        
+        <div class="col-md-3">
+            <!-- *** MENUS AND FILTERS ***
+    _________________________________________________________ -->
+            <div class="panel panel-default sidebar-menu">
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">Filtros de ofertas<a ng-show="autosCtrl.filtered" ng-click="autosCtrl.clearFilters()" class="btn btn-xs btn-danger pull-right" href><i class="fa fa-times-circle"></i> Limpiar</a></h3>
+                </div>
+
+                <div class="panel-body">
+
+    	           	<!-- Makes -->
+    				<div>
+    					<label for="makes">Selecciona una categoría:</label>
+    					<select title="Categorias" ng-change="offersCtrl.changeSearchCategories()" class="form-control" id="categories" ng-model="offersCtrl.searchCategory" ng-options="category for category in offersCtrl.searchCategories">
+    						<option value="" selected>todas</option> 
+    					</select>
+    				</div>
+
+                    <!-- Type -->
+    <!--                 <div>
+                        <label for="types">Selecciona un tipo:</label>
+                        <select title="Tipos" ng-change="autosCtrl.changeTypes()" class="form-control" id="types" ng-model="autosCtrl.ty" ng-options="type for type in autosCtrl.types">
+                            <option value="" selected>todos</option> 
+                        </select>
+                    </div> -->
+
+
+                </div>
+            </div>
+
+
+            <!-- *** MENUS AND FILTERS END *** -->
+
+            <div class="banner">
+                <a href="#">
+                    <!-- <img src="img/banner.jpg" alt="sales 2014" class="img-responsive"> -->
+                </a>
+            </div>
+        </div>
+
+
+
+     	<div class="col-md-9"> 
+    	    <div class="row searchs">
+
+    	    	<div ng-repeat="product in offersCtrl.offersResults">
+    		        <div class="col-md-3 col-sm-4">
+
+
+    		            <!-- .auto product -->
+    	                <div class="product" ng-show="product.category == 'autos'">
+    		                <div class="flip-container">
+    		                    <div class="flipper">
+    		                        <div class="front">
+    		                            <a ng-href="/#!/automovil/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}">
+    		                                <img ng-src="{{product.mainImage.url}}" alt="" class="img-responsive">
+    		                            </a>
+    		                        </div>
+    		                        <div class="back">
+    		                            <a ng-href="/#!/automovil/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}">
+    		                                <img ng-src="{{product.images[0].image.url}}" alt="" class="img-responsive">
+    		                            </a>
+    		                        </div>
+    		                    </div>
+    		                </div>
+    		                <a ng-href="/#!/automovil/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}" class="invisible">
+    		                    <img ng-src="{{product.mainImage.url}}" alt="" class="img-responsive">
+    		                </a>
+    		                <div class="text">
+    		                    <h3><a href="#!/automovil/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}">{{product.make | capitalize}} {{product.model | capitalize}} <span>{{product.year}}</span></a></h3>
+    		                    <p class="price">${{product.price | number}}</p>
+    		                    <p class="buttons">
+    		                        <a href="/#!/automovil/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}" class="btn btn-primary">Ver detalles</a>
+    		                    </p>
+
+    		                </div>
+    		                <!-- /.text -->
+
+    	                    <div ng-show="product.condition == 'new'" class="ribbon new">
+    	                        <div class="theribbon">NUEVO</div>
+    	                        <div class="ribbon-background"></div>
+    	                    </div>
+    		                <!-- /.ribbon -->
+
+    	                    <div ng-show="product.condition == 'used'" class="ribbon gift">
+    	                        <div class="theribbon">USADO</div>
+    	                        <div class="ribbon-background"></div>
+    	                    </div>
+    	                    <!-- /.ribbon -->
+
+    		            </div>
+    		            <!-- /.auto product -->
+
+
+
+            	        <!-- .bike product -->
+                        <div class="product" ng-show="product.category == 'bikes'">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a ng-href="/#!/moto/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}">
+                                            <img ng-src="{{product.mainImage.url}}" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a ng-href="/#!/moto/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}">
+                                            <img ng-src="{{product.images[0].image.url}}" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ng-href="/#!/moto/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}" class="invisible">
+                                <img ng-src="{{product.mainImage.url}}" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3><a ng-href="/#!/moto/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}" >{{product.make | capitalize}} {{product.model | capitalize}} <span>{{product.year}}</span></a></h3>
+                                <p class="price">${{product.price | number}}</p>
+                                <p class="buttons">
+                                    <a ng-href="/#!/moto/{{product.objectId}}/{{product.make}}-{{product.model}}-{{product.year}}" class="btn btn-primary">Ver detalles</a>
+                                </p>
+                            </div>
+                            <!-- /.text -->
+                        </div>
+                        <!-- /.bike product -->
+
+
+            	        <!-- .tire product -->
+                        <div class="product" ng-show="product.category == 'tires'">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a ng-href="/#!/caucho/{{product.objectId}}/{{tire.make}}-{{product.model}}-{{product.width}}-{{product.height}}-R{{product.diameter}}">
+                                            <img ng-src="{{product.mainImage.url}}" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a ng-href="/#!/caucho/{{product.objectId}}/{{tire.make}}-{{product.model}}-{{product.width}}-{{product.height}}-R{{product.diameter}}">
+                                            <img ng-src="{{product.images[0].image.url}}" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ng-href="/#!/caucho/{{product.objectId}}/{{tire.make}}-{{product.model}}-{{product.width}}-{{product.height}}-R{{product.diameter}}" class="invisible">
+                                <img ng-src="{{product.mainImage.url}}" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3><a ng-href="/#!/caucho/{{product.objectId}}/{{tire.make}}-{{product.model}}-{{product.width}}-{{product.height}}-R{{product.diameter}}" >{{product.make | capitalize}} {{product.model | uppercase}} {{product.dimensions | uppercase}}</a></h3>
+                                <p class="price">${{product.price | number}}</p>
+                                <p class="buttons">
+                                    <a ng-href="/#!/caucho/{{product.objectId}}/{{tire.make}}-{{product.model}}-{{product.width}}-{{product.height}}-R{{product.diameter}}" class="btn btn-primary">Ver detalles</a>
+                                </p>
+                            </div>
+                            <!-- /.text -->
+                        </div>
+                        <!-- /.bike product -->
+
+
+
+
+
+
+    		        </div>
+    		        <!-- /.col-md-4 -->
+    	        </div>
+
+    	        <!-- *** No results message *** -->
+    	       	<div class="text-center" ng-show="offersCtrl.nooffersResults">
+
+    	       		<div style="margin:100px;">
+    	       			<h3>No hay resultados.</h3>
+    	       		</div>
+
+    	        </div>
+    	        <!-- /.No results -->
+
+
+
+
+    	    </div>
+    	    <!-- /.products -->
+        </div>
+    </div>
+
+
+</div>

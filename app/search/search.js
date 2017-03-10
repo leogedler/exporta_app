@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mokars.search', ['ngRoute', 'service.module'])
+angular.module('exporta.search', ['ngRoute', 'service.module'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/busqueda', {
@@ -60,7 +60,6 @@ angular.module('mokars.search', ['ngRoute', 'service.module'])
 	}else{
 		searchCtrl.noSearch = true;
 	};
-
 
 
 	this.search = function(){

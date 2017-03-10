@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mokars.cart', ['ngRoute', 'service.module'])
+angular.module('exporta.cart', ['ngRoute', 'service.module'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/carrito', {

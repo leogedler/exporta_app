@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- define angular app -->
-<html ng-app="mokars" ng-controller="MainController as mainCtrl">
+<html ng-app="exporta" ng-controller="MainController as mainCtrl">
 
     <head>
 
@@ -14,7 +14,7 @@
         <title ng-bind="pageTitle"></title>
         <meta name="author" content="Leonardo Gedler" />
         <meta name="description" content="{{pageDescription}}">
-        <meta property="og:site_name" content="Mokars" />
+        <meta property="og:site_name" content="Exporta tu carro" />
         <meta property="og:locale" content="es_ES" />
         <meta property="og:description" content="{{ogPageDescription}}" />
 <!--         <meta property="fb:admins" content="762849282" />
@@ -24,13 +24,13 @@
         <meta property="og:type" content="website" />
         <meta property="og:url" content="{{url}}" />
         <meta name="twitter:card" content="summary">
-        <meta name="twitter:site" content="@mokars">
-        <meta name="twitter:title" content="Mokars">
+        <meta name="twitter:site" content="@exportatucarro">
+        <meta name="twitter:title" content="Exporta tu carro">
         <meta name="twitter:description" content="{{twitterDescription}}">
-        <meta name="twitter:creator" content="@mokars">
+        <meta name="twitter:creator" content="@exportatucarro">
         <meta name="twitter:image:src" content="{{twitterImage}}">
         <meta name="twitter:domain" content="{{url}}">
-        <link rel="shortcut icon" type="image/x-icon" href="app/images/mokarsfavi.png"/>
+        <link rel="shortcut icon" type="image/x-icon" href="app/images/exportafavi.png"/>
 <!--         <meta name="google-site-verification" content="UFrYErGd504atQar8aY2LYRcEkgAlTEUxb6rkbyzA8Y" /> -->
 
         <!-- CSS -->
@@ -63,6 +63,7 @@
         <script src="app/cart/cart.js"></script>
         <script src="app/search/search.js"></script>
         <script src="app/static/static.js"></script>
+        <script src="app/offers/offers.js"></script>
         <!-- End of Angular -->
 
         <!-- Scrips -->
@@ -122,10 +123,10 @@
                 "postalCode": "33014",
                 "streetAddress": "5470 NW 161st St. Miami Gardens, FL. 33014 USA"
               },
-              "email": "contacto@mokars.com",
-              "logo": "http://www.mokars.com/images/logo.png",
-              "url": "http://www.mokars.com/",
-              "name": "Mokars",
+              "email": "leads@mindcar.com",
+              "logo": "http://www.exportatucarro.com/images/logo.png",
+              "url": "http://www.exportatucarro.com/",
+              "name": "Exporta tu carro",
               "telephone": "(305) - 720 - 2470"
             }
         </script>
@@ -232,8 +233,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand home" href="/#!/">
-                        <img src="app/images/logo.png" style="width: 250px" alt="Mokars logo" class="hidden-xs img-responsive">
-                        <img src="app/images/logo.png" style="width: 180px; margin-top:5px;" alt="Mokars logo" class="visible-xs img-responsive"><span class="sr-only">Exporta tu carro - homepage</span>
+                        <img src="app/images/logo.png" style="width: 250px" alt="Exporta tu carro logo" class="hidden-xs img-responsive">
+                        <img src="app/images/logo.png" style="width: 180px; margin-top:5px;" alt="Exporta tu carro logo" class="visible-xs img-responsive"><span class="sr-only">Exporta tu carro - homepage</span>
                     </a>
                 </div>
 
@@ -309,6 +310,12 @@
 
                                                 <a class="hidden-md hidden-lg text-center" href="/#!/cauchos"><svg class="icon icon-wheel"><use xlink:href="#icon-wheel"></use></svg> Cauchos</a>
 
+                                            </li>
+
+                                             <li>
+                                                <a class="hidden-xs hidden-sm" href="/#!/ofertas"><i class="fa fa-tags fa-2x"></i></a>
+
+                                                <a class="hidden-md hidden-lg text-center" href="/#!/cauchos"><i class="fa fa-tags fa-2x"></i> Ofertas</a>
 
                                             </li>
 
@@ -413,7 +420,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
-                            <h4>Mokars</h4>
+                            <h4>Exporta tu carro</h4>
 
                             <ul>
                                 <li><a href="/#!/nosotros">Nosotros</a>
@@ -537,8 +544,8 @@
                             <h4>Mantente en contacto</h4>
 
                             <p class="social">
-                                <a href="https://www.facebook.com/mokars/" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
-                                <a href="https://www.instagram.com/mokars" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/exportatucarro/" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/exportatucarr" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
                                 <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
                             </p>
 
@@ -561,7 +568,7 @@
             <div id="copyright">
                 <div class="container">
                     <div class="col-md-6">
-                        <p class="pull-left">© 2017 Mokars.</p>
+                        <p class="pull-left">© 2017 Exporta tu carro.</p>
 
                     </div>
                 </div>

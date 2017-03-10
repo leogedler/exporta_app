@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mokars.bikeDetail', ['ngRoute', 'service.module'])
+angular.module('exporta.bikeDetail', ['ngRoute', 'service.module'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/moto/:ref/:name', {
