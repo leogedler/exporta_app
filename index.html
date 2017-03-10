@@ -188,7 +188,7 @@
                             <h4 class="modal-title" id="Login">Login</h4>
                         </div>
                         <div class="modal-body">
-                            <form name="loginForm" ng-submit="mainCtrl.loging()" action="javascript:void(0);">
+                            <form name="loginForm" ng-submit="loginForm.$valid && mainCtrl.loging()" action="javascript:void(0);">
                                 <div class="form-group">
                                     <input ng-model="mainCtrl.loginForm.username" type="email" class="form-control" id="email-modal" placeholder="email" autocapitalize="none" required>
                                 </div>
@@ -198,7 +198,7 @@
 
                                 <div class="text-center">
 
-                                    <button ng-hide="mainCtrl.logingUp" class="btn btn-primary"><i class="fa fa-sign-in"></i> Ingresar</button>
+                                    <button ng-hide="mainCtrl.logingUp" class="btn btn-primary" type="submit"><i class="fa fa-sign-in"></i> Ingresar</button>
                                     <i class="fa fa-spinner fa-spin fa-3x colorExporta" ng-show="mainCtrl.logingUp"></i>
                                 </div>
 
